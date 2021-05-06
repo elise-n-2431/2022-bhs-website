@@ -35,7 +35,7 @@ def about():
 def clubs():
     return render_template("clubs.html")
 
-
+#hi
 
 if __name__=="__main__":
     app.run(debug=True)
