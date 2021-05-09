@@ -1,8 +1,21 @@
 body{
     font-family: 'Raleway', sans-serif;
+    margin: 0px 0px 0px 0px;
 }
 header h1{
     margin: 0px 0px 0px 0px;
     width: 100%;
     height: 20%;
+}
+img{
+    width: 30vw;
+    height: 100%;
+    float: left;
+}
+header{
+    background-image: url("corner triangles2.png");
+    background-color: white;
+    height:15.0857142857vw;
+    background-size: 30vw, 15.0857142857vw;
+    background-repeat: no-repeat;
 }
