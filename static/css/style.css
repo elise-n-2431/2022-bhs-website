@@ -1,22 +1,37 @@
 body{
     font-family: 'Raleway', sans-serif;
     margin: 0px 0px 0px 0px;
-    background-image: url("corner triangles2.png");
     background-color: white;
     background-size: 30vw, 15.0857142857vw;
     background-repeat: no-repeat;
 }
-header h1{
-    margin: 0px 0px 0px 0px;
-    width: 100%;
-    height: 20%;
-    text-decoration-color: white;
+header a{
+    margin: 25px;
+
+    color: white;
+    text-decoration: none;
 }
+
 img{
-    width: 30vw;
+    width: 35vw;
     height: 100%;
     float: left;
 }
+article{
+    background-color: white;
+}
+
 header{
     background-color: rgba(33, 33, 33, 100);
+    height: 6.15vw;
+}
+
+.sidenav{
+    height:100vh;
+    width:17.7vw;
+    top:0;
+    background-color: rgba(220, 245, 215, 100);
+}
+p{
+    margin: 0px 0px 0px 0px;
 }

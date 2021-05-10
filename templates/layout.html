@@ -6,8 +6,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <img src="static/css/corner triangles3.png">
     {% include 'header.html' %}
-    {% block content%}{% endblock %}
+    <article>
+        {% block content%}{% endblock %}
+    </article>
     {% block sidebar%}{% endblock %}
     {% include 'footer.html' %}
 </body>
