@@ -3,29 +3,27 @@ body{
     margin: 0px 0px 0px 0px;
     background-color: white;
     background-size: 30vw, 15.0857142857vw;
-    background-repeat: no-repeat;
+}
+header{
+    background-color: rgba(33, 33, 33, 100);
+    height: 6.15vw;
 }
 header a{
-    margin: 25px;
-
     color: white;
     text-decoration: none;
+    float:left;
+    margin-top: 2.5vw;
+    margin-left: 1.5vw;
+    padding:1vw;
 }
-
+article{
+    background-color: white;
+}
 img{
     width: 35vw;
     height: 100%;
     float: left;
 }
-article{
-    background-color: white;
-}
-
-header{
-    background-color: rgba(33, 33, 33, 100);
-    height: 6.15vw;
-}
-
 .sidenav{
     height:100vh;
     width:17.7vw;
