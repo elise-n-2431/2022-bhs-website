@@ -12,15 +12,19 @@ header a{
     color: white;
     text-decoration: none;
     float:left;
-    margin-top: 2.5vw;
+    margin-top: 2.75vw;
     margin-left: 1.5vw;
-    padding:1vw;
+    padding:0.75vw;
 }
 header a:hover{
     background-color: grey;
 }
 header input[type=text]{
     float:right;
+    margin-top: 3.5vw;
+    margin-right: 1.5vw;
+    height:1.5vw;
+    width: 12vw;
 }
 article{
     background-color: white;
@@ -36,6 +40,14 @@ img{
     top:0;
     background-color: rgba(220, 245, 215, 100);
 }
-p{
+.sidebar p{
     margin: 0px 0px 0px 0px;
+}
+@media screen and (max-width: 600px) {
+    img{
+        width:70vw;
+    }
+    header{
+        height:28.9vw;
+    }
 }
