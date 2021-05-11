@@ -16,6 +16,12 @@ header a{
     margin-left: 1.5vw;
     padding:1vw;
 }
+header a:hover{
+    background-color: grey;
+}
+header input[type=text]{
+    float:right;
+}
 article{
     background-color: white;
 }
