@@ -36,15 +36,47 @@ img{
 }
 .sidenav{
     height:100vh;
-    width:15.408326vw;
+    width:15.34vw;
     top:0;
     background-color: white;
     border-color: rgba(220, 245, 215, 100);
-    border-width: 1.145837vw;
+    border-width: 1.2vw;
     border-style: solid;
 }
-.sidebar p{
-    margin: 0px 0px 0px 0px;
+.sidenav p{
+    padding: 1vw;
+    text-align: left;
+}
+.sidenav h4{
+    text-align: center;
+}
+.sidenav h5{
+    width:3vw;
+    margin:0.38vw;
+    float:left;
+    margin-right:0;
+}
+.number p{
+    float: right;
+    text-align: right;
+    margin:0.25vw;
+    padding:0;
+    width:2vw;
+    margin-left: 0;
+}
+
+.first{
+    width:12vw;
+    height:2vw;
+    margin:1.67vw;
+}
+.second{
+    height:2vw;
+    margin:1.67vw;
+}
+.third{
+    height:2vw;
+    margin:1.67vw;
 }
 @media screen and (max-width: 600px) {
     img{

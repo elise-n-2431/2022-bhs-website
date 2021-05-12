@@ -3,5 +3,18 @@
 <!--Put whatever articles that will go on the main page here-->
 {% endblock %}
 {% block sidebar %}
-    <p>toieanvoima;bkmal;efbmaefbn</p>
+    <h4>Divisional Points:</h4>
+    <div class=first style='background-color: blue'>
+        <h5>{{first}}</h5>
+        <div class=number><p>{{one}}</p></div>
+    </div>
+    <div class=second style='background-color: Red; width:calc(({{two}}/{{one}})*12vw)'>
+        <h5>{{second}}</h5>
+        <div class=number><p>{{two}}</p></div>
+    </div>
+    <div class=third style='background-color:yellow; width:calc(({{three}}/{{one}})*12vw)'>
+        <h5>{{third}}</h5>
+        <div class=number><p>{{three}}</p></div>
+    </div>
+    <p>Description for divisional points and what they mean... when they were started and some fun facts for parents idk?</p>
 {% endblock %}
