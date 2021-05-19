@@ -57,12 +57,15 @@ img{
     margin-right:0;
 }
 .number p{
-    float: right;
+    float:right;
     text-align: right;
     margin:0.25vw;
     padding:0;
     width:2vw;
     margin-left: 0;
+    margin-right:2vw;
+    position:relative;
+    top:-3.5vw;
 }
 
 .first{
@@ -73,10 +76,7 @@ img{
 .second{
     height:2vw;
     margin:1.67vw;
-}
-.third{
-    height:2vw;
-    margin:1.67vw;
+    margin-right:0;
 }
 @media screen and (max-width: 600px) {
     img{

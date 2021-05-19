@@ -1,6 +1,7 @@
 import sqlite3
-first=['north',0]; second=['north',0]; third=['north',0]; north=['north',0]; south=['south',0]; west=['west',0]
+first=['north',0]; second=['north',0]; third=['north',0]; north=['North',0]; south=['South',0]; west=['West',0]
 with sqlite3.connect("db/Divisionalpoints.db") as connection:
+    #add a def to connect to database and fetch the query so i don't need to repeat it
     cursor=connection.cursor()
     cursor.execute("SELECT colour,name FROM Divisions")
     results=cursor.fetchall()
@@ -14,16 +15,14 @@ with sqlite3.connect("db/Divisionalpoints.db") as connection:
     cursor.execute("SELECT north, south, west FROM Points")
     thing=cursor.fetchall()
     for item in thing:
-        north[1]=north[1]+item[0]
-        south[1]=south[1]+item[1]
-        west[1]=west[1]+item[2]
+        north[1]=north[1]+item[0]; south[1]=south[1]+item[1]; west[1]=west[1]+item[2]
     divisions=[north,south,west]
     for division in divisions:
         if division[1]>first[1]:
             first=division
     divisions.remove(first)
     for division in divisions:
-        if division>second:
+        if division[1]>second[1]:
             second=division
     divisions.remove(second)
     for division in divisions:
