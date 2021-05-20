@@ -1,4 +1,20 @@
 {% extends 'layout.html' %}
 {% block content %}
 <!--Put whatever articles that will go on the main page here-->
+<table>
+    <tr>
+        <th>North</th>
+        <th>South</th>
+        <th>West</th>
+        <th>Event</th>
+        <th>Date</th>
+    </tr>
+    {%for item in results%}
+    <tr>
+        {{item}}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+{% block sidebar %}
 {% endblock %}

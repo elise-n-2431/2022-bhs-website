@@ -45,8 +45,9 @@ def divpoints():
     with sqlite3.connect("db/Divisionalpoints.db") as connection:
     #this page is to show the history of all the divisional points as a list and should include a form to add more points hidden behind a login wall. (students shouldn't be able to get in through inspect elements)
         cursor=connection.cursor()
-        cursor.execute('')
-    return render_template('divisionalpoints.html')
+        cursor.execute('SELECT north,south,west,event,date FROM Points ORDER BY date DESC')
+        results=cursor.fetchall()
+    return render_template('divisionalpoints.html',results=results)
 
 if __name__=="__main__":
     app.run(debug=True)
