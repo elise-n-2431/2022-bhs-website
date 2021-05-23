@@ -11,10 +11,27 @@
     </tr>
     {%for item in results%}
     <tr>
-        {{item}}
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+        <td>{{item[2]}}</td>
+        <td>{{item[3]}}</td>
+        <td>{{item[4]}}</td>
     </tr>
     {% endfor %}
 </table>
 {% endblock %}
 {% block sidebar %}
+    <form action='/action_page.php'>
+        <label for="North">North:</label><br>
+        <input type="number" id="North" name="North" min=0><br>
+        <label for="South">South:</label><br>
+        <input type="number" id="South" name="South" min=0>
+        <label for="West">West:</label><br>
+        <input type="number" id="West" name="West"min=0><br>
+        <label for="Event">Event:</label><br>
+        <input type="text" id="Event" name="Event">
+        <label for="Password">Password:</label><br>
+        <input type="text" id="Password" name="Password"><br>
+        <input type="submit" id="Submit" name="Submit">
+    </form>
 {% endblock %}

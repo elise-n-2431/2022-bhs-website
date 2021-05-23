@@ -78,6 +78,23 @@ img{
     margin:1.67vw;
     margin-right:0;
 }
+table{
+    width:82%;
+    float: right;
+    padding:2vw;
+    position:relative;
+    top:-9.3vw;
+}
+th{
+    background-color: rgba(19, 81, 70, 100);
+    color:white;
+    padding:0.5vw;
+}
+td{
+
+    padding:0.5vw 0 0.5vw 1vw;
+}
+
 @media screen and (max-width: 600px) {
     img{
         width:70vw;
