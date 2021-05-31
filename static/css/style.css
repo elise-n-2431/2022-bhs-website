@@ -35,13 +35,14 @@ img{
     float: left;
 }
 .sidenav{
-    height:100vh;
+    height:100%;
     width:15.34vw;
     top:0;
     background-color: white;
     border-color: rgba(220, 245, 215, 100);
     border-width: 1.2vw;
     border-style: solid;
+    border-bottom-width:0;
 }
 .sidenav p{
     padding: 1vw;
@@ -105,31 +106,18 @@ td{
 a{
     text-decoration:none;
 }
-form{
-    margin-left:1.5vw;
-    padding:0;
-}
-form input{
-    width:12.14vw;
-}
-input[type="number" i]{
-    padding:0;
+.divpointsform{
     border-width:0.1vw;
-}
-input[type="text" i]{
     padding:0;
-    border-width:0;
+    margin-left:1.5vw;
 }
-input[type="password" i]{
-    padding:0;
-    border-width:0;
+.divpointsform input{
+    width:12.14vw;
+    margin-bottom: 1vw;
 }
 input[type="submit" i]{
-    padding:0;
-    border-width:0;
     width:7vw;
 }
-
 
 @media screen and (max-width: 600px) {
     img{
