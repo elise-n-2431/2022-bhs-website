@@ -94,6 +94,42 @@ td{
 
     padding:0.5vw 0 0.5vw 1vw;
 }
+.link p{
+    background-color: lightgrey;
+    margin:1.5vw;
+    padding:.5vw;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+a{
+    text-decoration:none;
+}
+form{
+    margin-left:1.5vw;
+    padding:0;
+}
+form input{
+    width:12.14vw;
+}
+input[type="number" i]{
+    padding:0;
+    border-width:0.1vw;
+}
+input[type="text" i]{
+    padding:0;
+    border-width:0;
+}
+input[type="password" i]{
+    padding:0;
+    border-width:0;
+}
+input[type="submit" i]{
+    padding:0;
+    border-width:0;
+    width:7vw;
+}
+
 
 @media screen and (max-width: 600px) {
     img{

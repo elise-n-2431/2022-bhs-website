@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import sqlite3
+import datetime
 
 app=Flask(__name__)
 
@@ -47,7 +48,8 @@ def divpoints():
         cursor=connection.cursor()
         cursor.execute('SELECT north,south,west,event,date FROM Points ORDER BY date DESC')
         results=cursor.fetchall()
-    return render_template('divisionalpoints.html',results=results)
+        date=datetime.date.today()
+    return render_template('divisionalpoints.html',results=results,date=date)
 
 if __name__=="__main__":
     app.run(debug=True)
