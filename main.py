@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request
 import sqlite3
 import datetime
+
 
 app=Flask(__name__)
 
@@ -41,7 +42,7 @@ def home():
 def clubs():
     return render_template("clubs.html")
 
-@app.route('/divpoints')
+@app.route('/divpoints',methods=['POST'])
 def divpoints():
     with sqlite3.connect("db/Divisionalpoints.db") as connection:
     #this page is to show the history of all the divisional points as a list and should include a form to add more points hidden behind a login wall. (students shouldn't be able to get in through inspect elements)

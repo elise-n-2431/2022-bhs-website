@@ -4,9 +4,19 @@ body{
     background-color: white;
     background-size: 30vw, 15.0857142857vw;
 }
+img{
+    width: 35vw;
+    float: left;
+    position:fixed;
+    z-index: 2;
+}
 header{
     background-color: rgba(33, 33, 33, 100);
     height: 6.15vw;
+    position:fixed;
+    width:100vw;
+    z-index: 1;
+    padding-left: 35vw;
 }
 header a{
     color: white;
@@ -20,29 +30,27 @@ header a:hover{
     background-color: grey;
 }
 header input[type=text]{
-    float:right;
     margin-top: 3.5vw;
     margin-right: 1.5vw;
+    margin-left: 12vw;
     height:1.5vw;
     width: 12vw;
+
 }
 article{
     background-color: white;
 }
-img{
-    width: 35vw;
-    height: 100%;
-    float: left;
-}
 .sidenav{
     height:100%;
     width:15.34vw;
-    top:0;
+    top:15.35vw;
     background-color: white;
     border-color: rgba(220, 245, 215, 100);
     border-width: 1.2vw;
     border-style: solid;
     border-bottom-width:0;
+    border-top-width:0;
+    position:fixed;
 }
 .sidenav p{
     padding: 1vw;
@@ -84,7 +92,7 @@ table{
     float: right;
     padding:2vw;
     position:relative;
-    top:-9.3vw;
+    top:6vw;
 }
 th{
     background-color: rgba(19, 81, 70, 100);
