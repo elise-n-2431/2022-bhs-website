@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block content %}
-<!--Put whatever articles that will go on the main page here-->
+<!--table displaying the history of the divpoints by event in descending date order-->
 <table>
     <tr>
         <th>North</th>
@@ -22,7 +22,8 @@
 {% endblock %}
 {% block sidebar %}
     <h4>Divisonal Points Entry:</h4>
-    <form autocomplete="off"class='divpointsform' formaction="/divpoints">
+    <!--input a new event as a form and post it to main.py to input into sql database -->
+    <form autocomplete="off"class='divpointsform' method="POST">
         <label for="North">North:</label><br>
         <input type="number" id="North" name="North" min=0><br>
         <label for="South">South:</label><br>

@@ -1,3 +1,4 @@
+#input 50 entries to Points sql table to test scrolling
 x=1
 while x<50:
     import sqlite3
