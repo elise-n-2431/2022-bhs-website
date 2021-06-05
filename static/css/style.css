@@ -35,10 +35,15 @@ header input[type=text]{
     margin-left: 12vw;
     height:1.5vw;
     width: 12vw;
-
 }
 article{
     background-color: white;
+    position:absolute;
+    width:78vw;
+    top:6.15vw;
+    left:17.75vw;
+    padding-top:2vw;
+    padding-left:2vw;
 }
 .sidenav{
     height:100%;
@@ -76,7 +81,6 @@ article{
     position:relative;
     top:-3.5vw;
 }
-
 .first{
     width:12vw;
     height:2vw;
@@ -89,10 +93,6 @@ article{
 }
 table{
     width:82%;
-    float: right;
-    padding:2vw;
-    position:relative;
-    top:6vw;
 }
 th{
     background-color: rgba(19, 81, 70, 100);
@@ -100,7 +100,6 @@ th{
     padding:0.5vw;
 }
 td{
-
     padding:0.5vw 0 0.5vw 1vw;
 }
 .link p{
@@ -126,6 +125,16 @@ a{
 input[type="submit" i]{
     width:7vw;
 }
+.clubentry{
+    width:100%;
+    top:6vw;
+    border:none;
+    height:2vw;
+    text-align: left;
+}
+.active, .clubentry:hover {
+    background-color: #ccc;
+  }
 
 @media screen and (max-width: 600px) {
     img{
