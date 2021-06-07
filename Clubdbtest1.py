@@ -11,7 +11,7 @@ with sqlite3.connect("db/Clubs.db") as connection:
         cursor.execute(time,(club[0],))
         times=cursor.fetchall()
         for time in times:
-            club[0]=[clu,club[1],club[2],club[3],club[4],club[5],club[6],club[7],time]
+            club1=[club[0],club[1],club[2],club[3],club[4],club[5],club[6],club[7],time]
             alltimes.update({time:club[0]})
         cursor.execute(day,(club[0],))
         days=cursor.fetchall()

@@ -1,9 +1,28 @@
 {% extends 'layout.html' %}
 {% block content %}
-<button type="button" class="clubentry">club</button>
-<div class="content">
+<h2>Name:       Category:          <br>Class:</h2>
+<div class=clubs>
+  <button type="button" class="clubentry"><img src="static/css/Football.jpg" alt="Sports club">club</button>
+  <div class="content">
     <p>Lorem ipsum...</p>
   </div>
+  <script>
+    var coll = document.getElementsByClassName("clubentry");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+    </script>
+</div>
 {% endblock %}
 {% block sidebar %}
 <h4>Sort By:</h4>
