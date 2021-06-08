@@ -2,10 +2,12 @@
 {% block content %}
 <h2>Name:       Category:          <br>Class:</h2>
 <div class=clubs>
-  <button type="button" class="clubentry"><img src="static/css/Football.jpg" alt="Sports club">club</button>
-  <div class="content">
-    <p>Lorem ipsum...</p>
-  </div>
+  {%for club in clubs%}
+    <button type="button" class="clubentry"><img src="static/css/music.png" alt="Sports club"><i class="material-icons">&#xe145;</i>{{club}}</button>
+    <div class="content">
+      <p>Heres where more information about the club should go such as time, location, description & contact info etc. Ideally each will be of a similar length like 4-5 lines.</p>
+    </div>
+  {%endfor%}
   <script>
     var coll = document.getElementsByClassName("clubentry");
     var i;

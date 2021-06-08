@@ -52,15 +52,15 @@ def clubs():
         clubs=cursor.fetchall()
         time='SELECT Time.time FROM Club JOIN ClubTime ON ClubTime.cid=Club.id JOIN Time ON Time.id=ClubTime.tid WHERE Club.id=?;'
         day='SELECT Day.day FROM Club JOIN ClubDay ON ClubDay.cid=Club.id JOIN Day ON Day.id=ClubDay.cid WHERE Club.id=?;'
-        for club in clubs:
+        '''for club in clubs:
             cursor.execute(time,(club[0],))
             times=cursor.fetchall()
             print(times)
             cursor.execute(day,(club[0],))
             days=cursor.fetchall()
-            print(days)
+            print(days)'''
         
-    return render_template("clubs.html")
+    return render_template("clubs.html",clubs=clubs)
 
 
 

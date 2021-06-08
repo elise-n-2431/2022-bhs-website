@@ -10,26 +10,28 @@ body{
     position:fixed;
     z-index: 2;
 }
+.clubentry{
+    padding:1vw;
+}
 .clubs img{
-    width:3vw;
+    width:3.5vw;
 }
 .clubs button{
     height:100%;
 }
-.clubentry{
-    padding:18px;
+.clubentry:after{
     content:'\02795';
 }
-.clubentry:after{
-    content:
+.active:after{
+    content:'\02796';
 }
 .content{
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    margin-bottom:0.5vw;
 }
-
 header{
     background-color: rgba(33, 33, 33, 100);
     height: 6.15vw;
