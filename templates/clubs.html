@@ -3,9 +3,10 @@
 <h2>Name:       Category:          <br>Class:</h2>
 <div class=clubs>
   {%for club in clubs%}
-    <button type="button" class="clubentry"><img src="static/css/music.png" alt="Sports club"><i class="material-icons">&#xe145;</i>{{club}}</button>
+    <button type="button" class="clubentry"><img src="static/css/music.png" alt="Sports club"><h3>{{club[0]}}</h3></button>
     <div class="content">
       <p>Heres where more information about the club should go such as time, location, description & contact info etc. Ideally each will be of a similar length like 4-5 lines.</p>
+      <p>Description: {{club[2]}}</p>
     </div>
   {%endfor%}
   <script>
