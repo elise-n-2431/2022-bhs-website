@@ -1,12 +1,12 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2>Name:       Category:          <br>Class:</h2>
 <div class=clubs>
   {%for club in clubs%}
-    <button type="button" class="clubentry"><img src="static/css/music.png" alt="Sports club"><h3>{{club[0]}}</h3></button>
+    <button type="button" class="clubentry"><img src="static/css/{{club[5]}}icon.png"><p>{{club[0]}}</p></button>
     <div class="content">
-      <p>Heres where more information about the club should go such as time, location, description & contact info etc. Ideally each will be of a similar length like 4-5 lines.</p>
-      <p>Description: {{club[2]}}</p>
+      <p>{{club[2]}}</p>
+      <p>Contact: {{club[3]}} <br>Teacher's Code: {{club[4]}}</p>
+      <p>When?</p>
     </div>
   {%endfor%}
   <script>

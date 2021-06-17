@@ -1,0 +1,5 @@
+flask
+pillow
+flask_email
+
+#pip.install -r requirements.txt

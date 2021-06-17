@@ -138,12 +138,18 @@ input[type="submit" i]{
 .active, .clubentry:hover {
     background-color: #d9d9d9ff;
 }
-.clubentry h3{
-    float:right;
-    padding:0;
-}
 .clubs img{
+    float:left;
     width:3.5vw;
+    image-rendering: optimizeQuality;
+}
+.clubentry p{
+    float:left;
+    padding:0;
+    margin-left:1vw;
+    color:rgba(33, 33, 33, 100);
+    font-size: 130%;
+    font-weight: 500;
 }
 .clubs button{
     height:100%;
