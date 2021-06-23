@@ -5,10 +5,17 @@ body{
     background-size: 30vw, 15.0857142857vw;
 }
 .cornertriangles img{
-    width: 35vw;
+    width: 17.75vw;
     float: left;
     position:fixed;
     z-index: 2;
+}
+.cornertriangles2 img{
+    width: 17.25vw;
+    float: left;
+    position:fixed;
+    z-index: 2;
+    left: 17.75vw;
 }
 header{
     background-color: rgba(33, 33, 33, 100);
