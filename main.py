@@ -63,8 +63,6 @@ def clubs():
     return render_template("clubs.html",clubs=clubs)
 
 
-
-
 @app.route('/divpoints',methods=['POST','GET'])
 def divpoints():
     if request.method=='POST':
@@ -78,5 +76,12 @@ def divpoints():
         date=datetime.date.today()
     return render_template('divisionalpoints.html',results=results,date=date)
 
+@app.route('/library')
+def library():
+    return render_template('library.html')
+
+@app.route('/links')
+def links():
+    return render_template('links.html')
 if __name__=="__main__":
     app.run(debug=True)
