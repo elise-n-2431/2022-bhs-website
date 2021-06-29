@@ -67,6 +67,7 @@ article{
 .sidenav p{
     padding: 1vw;
     text-align: left;
+    font-size: 90%;
 }
 .sidenav h4{
     text-align: center;
@@ -181,44 +182,50 @@ input[type="submit" i]{
 .main p{
     margin:0;
 }
-.blockthree{
+.onebyone{
     background-color:#f5f5f5ff;
     padding:1vw;
-    width: 49vw;
+    width: 12.5vw;
     margin-bottom:1vw;
     margin-right:1vw;
     float:left;
-    height:10vw;
+    height:12.5vw;
 }
-.blocktwo{
+.onebytwo{
     background-color:#f5f5f5ff;
     padding:1vw;
-    width: 49vw;
+    width: 28vw;
     margin-bottom:1vw;
     margin-right:1vw;
     float:left;
-    height:22.99vw;
+    height:12.5vw;
 }
-.blockone{
+.twobyone{
     background-color:#f5f5f5ff;
     padding:1vw;
-    width: 23vw;
+    width: 12.5vw;
     margin-bottom:1vw;
     margin-right:1vw;
     float:left;
-    height:22.99vw;
+    height:27.99vw;
 }
-.block{
+.twobytwo{
     background-color:#f5f5f5ff;
     padding:1vw;
-    width: 23vw;
+    width: 28vw;
     margin-bottom:1vw;
     margin-right:1vw;
     float:left;
-    height:10vw;
+    height:28vw;
 }
-.blockdrop{
-    clear:left;
+.twobythree{
+    background-color:#f5f5f5ff;
+    padding:1vw;
+    width: 43.5vw;
+    margin-bottom:1vw;
+    margin-right:1vw;
+    float:left;
+    height:27.99vw;
 }
 @media screen and (max-width: 600px) {
     img{
