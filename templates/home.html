@@ -1,20 +1,27 @@
 {% extends 'layout.html' %}
 {% block content %}
 <div class=main>
-        <div class={{size[0]}}><p>{{content[0]}}</p></div>
-        <div class=onebyone><p>{{content[1]}}</p></div>
-        <div class=onebyone><p>{{content[2]}}</p></div>
-        <div class=onebytwo><p>{{content[3]}}</p></div>
-        <div class=onebytwo><p>{{content[4]}}</p></div>
-        <div class=onebyone><p>{{content[5]}}</p></div>
-        <div class=onebyone><p>{{content[6]}}</p></div>
-        <div class=onebyone><p>{{content[7]}}</p></div>
-        <div class=onebyone><p>{{content[8]}}</p></div>
-        <div class=onebyone><p>{{content[9]}}</p></div>
-        <div class=onebyone><p>{{content[10]}}</p></div>
-        <div class=onebyone><p>{{content[11]}}</p></div>
-        <div class=twobytwo><p>{{content[12]}}</p></div>
-        <div class=onebyone><p>{{content[13]}}</p></div>
+        <div class={{size[0]}} style=background-color:#{{colour[0]}};><p>{{content[0]}}</p></div>
+        <div class={{size[1]}} style= padding:0;width:14.5vw;height:14.5vw;>
+                <a href=https://hail.to/burnside-high-school/publication/hWQgXdS>
+                        <img src="{{colour[1]}}" style= width:14.5vw;>
+                        {{content[1]}}
+                </a>
+        </div>
+        <div class={{size[2]}} style=background-color:#{{colour[2]}};><p>{{content[2]}}</p></div>
+        <div class={{size[3]}} style=background-color:#{{colour[3]}};><p>{{content[3]}}</p></div>
+        <div class={{size[4]}} style=background-color:#{{colour[4]}};><p>{{content[4]}}</p></div>
+        <div class={{size[5]}} style=background-color:#{{colour[5]}};><p>{{content[5]}}</p></div>
+        <div class={{size[6]}} style=background-color:#{{colour[6]}};><p>{{content[6]}}</p></div>
+        <div class={{size[7]}} style=background-color:#{{colour[7]}};><p>{{content[7]}}</p></div>
+        <div class={{size[8]}} style=background-color:#{{colour[8]}};><p>{{content[8]}}</p></div>
+        <div class={{size[9]}} style=background-color:#{{colour[9]}};><p>{{content[9]}}</p></div>
+        <div class={{size[10]}} style=background-color:#{{colour[10]}};><p>{{content[10]}}</p></div>
+        <div class={{size[11]}} style=background-color:#{{colour[11]}};><p>{{content[11]}}</p></div>
+        <div class={{size[12]}} style=background-color:#{{colour[12]}};><p>{{content[12]}}</p></div>
+        <div class={{size[13]}} style=background-color:#{{colour[13]}};><p>{{content[13]}}</p></div>
+        <div class={{size[14]}} style=position:absolute;top:79.5vw;background-color:#{{colour[14]}};><p>{{content[14]}}</p></div>
+        <div class={{size[15]}} style=background-color:#{{colour[15]}};><p>{{content[15]}}</p></div>
 </div>
 {% endblock %}
 {% block sidebar %}
