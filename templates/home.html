@@ -5,7 +5,7 @@
                 {%if item[2]==None%}
                         <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;><p>{{item[0]}}</p></div>
                 {%else%}
-                        <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;><img src='{{item[2]}}' style=width:100%><p>{{item[0]}}</p></div>
+                        <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;padding:0;><img src='{{item[2]}}' style=width:100%;height:><p>{{item[0]}}</p></div>
                 {%endif%}
         {%endfor%}
                 
