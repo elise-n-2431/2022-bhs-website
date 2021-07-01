@@ -182,50 +182,11 @@ input[type="submit" i]{
 .main p{
     margin:0;
 }
-.onebyone{
-    background-color:rgb(172, 172, 172);
+.block1{
     padding:1vw;
-    width: 12.5vw;
     margin-bottom:1vw;
     margin-right:1vw;
     float:left;
-    height:12.5vw;
-}
-.onebytwo{
-    background-color:rgb(172, 172, 172);
-    padding:1vw;
-    width: 28vw;
-    margin-bottom:1vw;
-    margin-right:1vw;
-    float:left;
-    height:12.5vw;
-}
-.twobyone{
-    background-color:rgb(172, 172, 172);
-    padding:1vw;
-    width: 12.5vw;
-    margin-bottom:1vw;
-    margin-right:1vw;
-    float:left;
-    height:27.99vw;
-}
-.twobytwo{
-    background-color:rgb(172, 172, 172);
-    padding:1vw;
-    width: 28vw;
-    margin-bottom:1vw;
-    margin-right:1vw;
-    float:left;
-    height:28vw;
-}
-.twobythree{
-    background-color:rgb(172, 172, 172);
-    padding:1vw;
-    width: 43.5vw;
-    margin-bottom:1vw;
-    margin-right:1vw;
-    float:left;
-    height:27.99vw;
 }
 @media screen and (max-width: 600px) {
     img{

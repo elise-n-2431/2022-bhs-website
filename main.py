@@ -48,15 +48,8 @@ def home():
         third=division
     #define division values, name and colour eg.num1=largest number, name3=name of div with least points etc.
     num1=first[1]; num2=second[1]; num3=third[1]; name1=first[0]; name2=second[0]; name3=third[0]; col1=first[2]; col2=second[2]; col3=third[2]
-    contents=connectsql("db/HomePageContent.db","SELECT content,size,colour FROM Content ORDER BY box")
-    content=[]
-    size=[]
-    colour=[]
-    for item in contents:
-        content.append(item[0])
-        size.append(item[1])
-        colour.append(item[2])
-    return render_template('home.html', num1=num1,num2=num2,num3=num3,name1=name1,name2=name2,name3=name3,col1=col1,col2=col2,col3=col3,content=content,size=size,colour=colour)
+    content=connectsql("db/HomePageContent.db","SELECT content,colour,image,width,height FROM Content ORDER BY box")
+    return render_template('home.html', num1=num1,num2=num2,num3=num3,name1=name1,name2=name2,name3=name3,col1=col1,col2=col2,col3=col3,content=content)
 
 @app.route('/clubs')
 #create a page displaying the clubs
