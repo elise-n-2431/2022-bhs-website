@@ -3,12 +3,33 @@
 <div class=main>
         {%for item in content%}
                 {%if item[2]==None%}
-                        <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;><p>{{item[0]}}</p></div>
+                        {%if item[5]==None%}
+                                <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
+                                        <p>{{item[0]}}</p>
+                                </div>
+                        {%else%}
+                                <a href='{{item[5]}}' target=_blank>
+                                        <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
+                                                <p>{{item[0]}}</p>
+                                        </div>
+                                </a>
+                        {%endif%}
                 {%else%}
-                        <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;padding:0;><img src='{{item[2]}}' style=width:100%;height:><p>{{item[0]}}</p></div>
+                        {%if item[5]==None%}
+                                <div class=block2 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
+                                        <img src='/static/images/{{item[2]}}'>
+                                        <p>{{item[0]}}</p>
+                                </div>
+                        {%else%}
+                                <a href='{{item[5]}}' target=_blank>
+                                        <div class=block2 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
+                                                <img src='/static/images/{{item[2]}}'>
+                                                <p>{{item[0]}}</p>
+                                        </div>
+                                </a>
+                        {%endif%}
                 {%endif%}
-        {%endfor%}
-                
+        {%endfor%}        
 </div>
 {% endblock %}
 {% block sidebar %}
