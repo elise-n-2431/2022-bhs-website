@@ -5,12 +5,12 @@
                 {%if item[2]==None%}
                         {%if item[5]==None%}
                                 <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
-                                        <p>{{item[0]}}</p>
+                                        <textarea disabled=true readonly style=width:{{item[3]}}vw;height:{{item[4]}}vw;>{{item[0]}}</textarea>
                                 </div>
                         {%else%}
-                                <a href='{{item[5]}}' target=_blank>
+                                <a href='{{item[5]}}' target=_{{item[6]}}>
                                         <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
-                                                <p>{{item[0]}}</p>
+                                                <textarea disabled=true readonly style=width:{{item[3]}}vw;height:{{item[4]}}vw;cursor:pointer;>{{item[0]}}</textarea>
                                         </div>
                                 </a>
                         {%endif%}
@@ -21,7 +21,7 @@
                                         <p>{{item[0]}}</p>
                                 </div>
                         {%else%}
-                                <a href='{{item[5]}}' target=_blank>
+                                <a href='{{item[5]}}' target=_{{item[6]}}>
                                         <div class=block2 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
                                                 <img src='/static/images/{{item[2]}}'>
                                                 <p>{{item[0]}}</p>
@@ -34,15 +34,17 @@
 {% endblock %}
 {% block sidebar %}
 <!--display the divisional points as bars with widths as percentages of the first-->
-<h4>Divisional Points:</h4>
-<div class=first style='background-color: #{{col1}}'><h5>{{name1}}</h5></div>
-<div class=number><p>{{num1}}</p></div>
-<div class=second style='background-color: #{{col2}}; width:calc(({{num2}}/{{num1}})*12vw)'><h5>{{name2}}</h5></div>
-<div class=number><p>{{num2}}</p></div>
-<div class=second style='background-color: #{{col3}}; width:calc(({{num3}}/{{num1}})*12vw)'><h5>{{name3}}</h5></div>
-<div class=number><p>{{num3}}</p></div>
-<p>North, South and West are divisions competing to win the Mitchell Cup. Students can gain points for their division by participating in events such as atheletics.</p>
-<div class='link'>
-        <a href="/divpoints"><p>More Information</p></a>
+<div class=divpoints>
+        <h4>Divisional Points:</h4>
+        <div class=first style='background-color: #{{col1}}'><h5>{{name1}}</h5></div>
+        <div class=number><p>{{num1}}</p></div>
+        <div class=second style='background-color: #{{col2}}; width:calc(({{num2}}/{{num1}})*12vw)'><h5>{{name2}}</h5></div>
+        <div class=number><p>{{num2}}</p></div>
+        <div class=second style='background-color: #{{col3}}; width:calc(({{num3}}/{{num1}})*12vw)'><h5>{{name3}}</h5></div>
+        <div class=number><p>{{num3}}</p></div>
+        <p>North, South and West are divisions competing to win the Mitchell Cup. Students can gain points for their division by participating in events such as atheletics.</p>
+        <div class='link'>
+                <a href="/divpoints"><p>More Information</p></a>
+        </div>
 </div>
 {% endblock %}

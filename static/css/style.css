@@ -19,7 +19,7 @@ body{
 }
 header{
     background-color: rgba(33, 33, 33, 100);
-    height: 6.15vw;
+    height: 6.145vw;
     position:fixed;
     width:100vw;
     z-index: 2;
@@ -39,9 +39,16 @@ header a:hover{
 header input[type=text]{
     margin-top: 3.5vw;
     margin-right: 1.5vw;
-    margin-left: 12vw;
+    margin-left: 6vw;
     height:1.5vw;
     width: 12vw;
+}
+header p{
+    color:white;
+    background-color: grey;
+    padding:0.5vw;
+    float:left;
+    margin: 0 0 0 1vw;
 }
 article{
     background-color: white;
@@ -55,7 +62,7 @@ article{
 .sidenav{
     height:100%;
     width:15.34vw;
-    top:15.35vw;
+    top:15.2vw;
     background-color: white;
     border-color: rgba(220, 245, 215, 100);
     border-width: 1.2vw;
@@ -64,15 +71,15 @@ article{
     border-top-width:0;
     position:fixed;
 }
-.sidenav p{
+.divpoints p{
     padding: 1vw;
     text-align: left;
     font-size: 90%;
 }
-.sidenav h4{
+.divpoints h4{
     text-align: center;
 }
-.sidenav h5{
+.divpoints h5{
     width:3vw;
     margin:0.38vw;
     float:left;
@@ -182,12 +189,23 @@ input[type="submit" i]{
 .main p{
     margin:0;
 }
+textarea{
+    background-color: rgba(255, 255, 255, 0);
+    border:none;
+    resize:none;
+    font-family:'Raleway', sans-serif;
+    font-size: inherit;
+    color: black;
+}
 .block1{
     padding:1vw;
     margin-bottom:1vw;
     margin-right:1vw;
     float:left;
+    color:black;
+
 }
+
 .block2{
     padding:0;
     margin-bottom:1vw;
@@ -208,6 +226,24 @@ input[type="submit" i]{
     width:100%;
     text-align:center;
 }
+.printside h4{
+    width:auto;
+    margin:0;
+    margin-left: 0.5vw;
+    margin-bottom:0.25vw;
+}
+.printcontent h4{
+    margin: 0.5vw 0;
+}
+.printcontent p{
+    margin:0;
+    line-height:2vw;
+}
+.printcontent ul{
+    margin:0;
+
+}
+
 
 @media screen and (max-width: 600px) {
     img{
