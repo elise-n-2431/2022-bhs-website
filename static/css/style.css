@@ -29,12 +29,13 @@ header a{
     color: white;
     text-decoration: none;
     float:left;
-    margin-top: 2.75vw;
+    margin-top: 1.75vw;
     margin-left: 1.5vw;
     padding:0.75vw;
 }
 header a:hover{
-    background-color: grey;
+    background-color: rgba(80, 80, 80, 100);
+    color:white;
 }
 header input[type=text]{
     margin-top: 3.5vw;
@@ -44,11 +45,14 @@ header input[type=text]{
     width: 12vw;
 }
 header p{
-    color:white;
-    background-color: grey;
-    padding:0.5vw;
+    color: white;
+    text-decoration: none;
     float:left;
-    margin: 0 0 0 1vw;
+    margin-top: 0.875vw;
+    margin-left: 1.5vw;
+    padding:0.75vw;
+    border-left-color: white;
+    border-left-style: solid;
 }
 article{
     background-color: white;

@@ -18,6 +18,10 @@ if (week%2) ==0:
     week='B'
 else:
     week='A'
+date=datetime.datetime.now()
+day=date.strftime("%d")
+month=date.strftime("%m")
+year=date.strftime("%y")
 
 @app.route('/')
 def home():
@@ -61,7 +65,7 @@ def home():
             item[4]=item[4]+2
             item=tuple(item)
         content.append(item)
-    return render_template('home.html', num1=num1,num2=num2,num3=num3,name1=name1,name2=name2,name3=name3,col1=col1,col2=col2,col3=col3,content=content,week=week)
+    return render_template('home.html', num1=num1,num2=num2,num3=num3,name1=name1,name2=name2,name3=name3,col1=col1,col2=col2,col3=col3,content=content,week=week,day=day,month=month,year=year)
 
 @app.route('/clubs')
 #create a page displaying the clubs
@@ -71,16 +75,9 @@ def clubs():
         cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club ')
         clubs=cursor.fetchall()
         time='SELECT Time.time FROM Club JOIN ClubTime ON ClubTime.cid=Club.id JOIN Time ON Time.id=ClubTime.tid WHERE Club.id=?;'
-        day='SELECT Day.day FROM Club JOIN ClubDay ON ClubDay.cid=Club.id JOIN Day ON Day.id=ClubDay.cid WHERE Club.id=?;'
-        '''for club in clubs:
-            cursor.execute(time,(club[0],))
-            times=cursor.fetchall()
-            print(times)
-            cursor.execute(day,(club[0],))
-            days=cursor.fetchall()
-            print(days)'''
-        
-    return render_template("clubs.html",clubs=clubs)
+        days='SELECT Day.day FROM Club JOIN ClubDay ON ClubDay.cid=Club.id JOIN Day ON Day.id=ClubDay.cid WHERE Club.id=?;'
+        #time and days are for when i add the sorting functionality
+    return render_template("clubs.html",clubs=clubs,week=week,day=day,month=month,year=year)
 
 
 @app.route('/divpoints',methods=['POST','GET'])
@@ -93,20 +90,19 @@ def divpoints():
         cursor=connection.cursor()
         cursor.execute('SELECT north,south,west,event,date FROM Points ORDER BY date DESC')
         results=cursor.fetchall()
-        date=datetime.date.today()
-    return render_template('divisionalpoints.html',results=results,date=date)
+    return render_template('divisionalpoints.html',results=results,week=week,day=day,month=month,year=year)
 
 @app.route('/library')
 def library():
-    return render_template('library.html')
+    return render_template('library.html',week=week,day=day,month=month,year=year)
 
 @app.route('/links')
 def links():
-    return render_template('links.html')
+    return render_template('links.html',week=week,day=day,month=month,year=year)
 
 @app.route('/printing')
 def printing():
-    return render_template('printing.html')
+    return render_template('printing.html',week=week,day=day,month=month,year=year)
 
 
 if __name__=="__main__":
