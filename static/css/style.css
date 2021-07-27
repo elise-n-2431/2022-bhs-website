@@ -113,6 +113,9 @@ article{
 table{
     width:82%;
 }
+h4{
+    text-align:center;
+}
 th{
     background-color: rgba(19, 81, 70, 100);
     color:white;

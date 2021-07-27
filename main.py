@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3
 import datetime
+
+from flask.helpers import url_for
 
 app=Flask(__name__)
 
@@ -11,18 +13,14 @@ def connectsql(data,query):
         results=cursor.fetchall()
         return results
 
-week1=datetime.datetime.now()
-week=week1.strftime("%W")
-week=int(week)
+week1=datetime.datetime.now().strftime("%W")
+week=int(week1)
 if (week%2) ==0:
     week='B'
 else:
     week='A'
-date=datetime.datetime.now()
-day=date.strftime("%d")
-month=date.strftime("%m")
-year=date.strftime("%y")
-
+date=datetime.datetime.now().strftime("%d/%m/%Y")
+datet=datetime.datetime.now().strftime("%Y-%m-%d")
 @app.route('/')
 def home():
     #fetch divisional points and determine the total per division and order them
@@ -65,7 +63,7 @@ def home():
             item[4]=item[4]+2
             item=tuple(item)
         content.append(item)
-    return render_template('home.html', num1=num1,num2=num2,num3=num3,name1=name1,name2=name2,name3=name3,col1=col1,col2=col2,col3=col3,content=content,week=week,day=day,month=month,year=year)
+    return render_template('home.html', num1=num1,num2=num2,num3=num3,name1=name1,name2=name2,name3=name3,col1=col1,col2=col2,col3=col3,content=content,week=week,date=date)
 
 @app.route('/clubs')
 #create a page displaying the clubs
@@ -77,32 +75,43 @@ def clubs():
         time='SELECT Time.time FROM Club JOIN ClubTime ON ClubTime.cid=Club.id JOIN Time ON Time.id=ClubTime.tid WHERE Club.id=?;'
         days='SELECT Day.day FROM Club JOIN ClubDay ON ClubDay.cid=Club.id JOIN Day ON Day.id=ClubDay.cid WHERE Club.id=?;'
         #time and days are for when i add the sorting functionality
-    return render_template("clubs.html",clubs=clubs,week=week,day=day,month=month,year=year)
+    return render_template("clubs.html",clubs=clubs,week=week,date=date)
 
 
 @app.route('/divpoints',methods=['POST','GET'])
 def divpoints():
+    print(request.method)
     if request.method=='POST':
-        idk=request.form['North']
-        print(idk)
+        password=request.form['Password']
+        if password=='Bottleofwater43':
+            north=request.form['North']
+            south=request.form['South']
+            west=request.form['West']
+            event=request.form['Event']
+            with sqlite3.connect("db/Divisionalpoints.db") as connection:
+                insert=connection.cursor()
+                query=('INSERT INTO Points(north, south, west, event, date) VALUES (?, ?, ?, ?, ?);')
+                insert.execute(query,(north,south,west,event,datet))
+                return redirect (url_for('divpoints'))
+
     with sqlite3.connect("db/Divisionalpoints.db") as connection:
         #fetch divisional points by event from sql and display as results in html
         cursor=connection.cursor()
         cursor.execute('SELECT north,south,west,event,date FROM Points ORDER BY date DESC')
         results=cursor.fetchall()
-    return render_template('divisionalpoints.html',results=results,week=week,day=day,month=month,year=year)
+    return render_template('divisionalpoints.html',results=results,week=week,date=date)
 
 @app.route('/library')
 def library():
-    return render_template('library.html',week=week,day=day,month=month,year=year)
+    return render_template('library.html',week=week,date=date)
 
 @app.route('/links')
 def links():
-    return render_template('links.html',week=week,day=day,month=month,year=year)
+    return render_template('links.html',week=week,date=date)
 
 @app.route('/printing')
 def printing():
-    return render_template('printing.html',week=week,day=day,month=month,year=year)
+    return render_template('printing.html',week=week,date=date)
 
 
 if __name__=="__main__":
