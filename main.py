@@ -13,6 +13,18 @@ def connectsql(data,query):
         results=cursor.fetchall()
         return results
 
+def check(value):
+    try:
+        value=int(value)
+        if value>=0:
+            return True
+        else:
+            return False
+    except:
+        return False
+
+
+
 week1=datetime.datetime.now().strftime("%W")
 week=int(week1)
 if (week%2) ==0:
@@ -85,14 +97,17 @@ def divpoints():
         password=request.form['Password']
         if password=='Bottleofwater43':
             north=request.form['North']
-            south=request.form['South']
-            west=request.form['West']
-            event=request.form['Event']
-            with sqlite3.connect("db/Divisionalpoints.db") as connection:
-                insert=connection.cursor()
-                query=('INSERT INTO Points(north, south, west, event, date) VALUES (?, ?, ?, ?, ?);')
-                insert.execute(query,(north,south,west,event,datet))
-                return redirect (url_for('divpoints'))
+            if check(north)==True:
+                south=request.form['South']
+                if check(south)==True:
+                    west=request.form['West']
+                    if check(west)==True:
+                        event=request.form['Event']
+                        with sqlite3.connect("db/Divisionalpoints.db") as connection:
+                            insert=connection.cursor()
+                            query=('INSERT INTO Points(north, south, west, event, date) VALUES (?, ?, ?, ?, ?);')
+                            insert.execute(query,(north,south,west,event,datet))
+                            return redirect (url_for('divpoints'))
 
     with sqlite3.connect("db/Divisionalpoints.db") as connection:
         #fetch divisional points by event from sql and display as results in html
