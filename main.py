@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, flash, render_template, request, redirect
 import sqlite3
 import datetime
 
@@ -92,7 +92,7 @@ def clubs():
 
 @app.route('/divpoints',methods=['POST','GET'])
 def divpoints():
-    print(request.method)
+    error=None
     if request.method=='POST':
         password=request.form['Password']
         if password=='Bottleofwater43':
@@ -103,18 +103,23 @@ def divpoints():
                     west=request.form['West']
                     if check(west)==True:
                         event=request.form['Event']
+                        error='Divisional Points entry was successful'
                         with sqlite3.connect("db/Divisionalpoints.db") as connection:
                             insert=connection.cursor()
                             query=('INSERT INTO Points(north, south, west, event, date) VALUES (?, ?, ?, ?, ?);')
                             insert.execute(query,(north,south,west,event,datet))
-                            return redirect (url_for('divpoints'))
+                            return render_template('divisioncodesucessful.html', error=error)
+            else:
+                error='Invalid Input'
+        else:
+            error='Invalid Password'
 
     with sqlite3.connect("db/Divisionalpoints.db") as connection:
         #fetch divisional points by event from sql and display as results in html
         cursor=connection.cursor()
         cursor.execute('SELECT north,south,west,event,date FROM Points ORDER BY date DESC')
         results=cursor.fetchall()
-    return render_template('divisionalpoints.html',results=results,week=week,date=date)
+    return render_template('divisionalpoints.html',results=results,week=week,date=date,error=error)
 
 @app.route('/library')
 def library():

@@ -36,4 +36,9 @@
         <input type="password" id="Password" name="Password" required><br>
         <input type="submit" id="Submit" name="Submit">
     </form>
+    {% if error != None %}
+        <script>
+            alert("{{error}}");
+        </script>
+    {%endif%}
 {% endblock %}
