@@ -82,8 +82,12 @@ def home():
 def clubs():
     with sqlite3.connect("db/Clubs.db") as connection:
         cursor=connection.cursor()
-        cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club ')
-        clubs=cursor.fetchall()
+        cursor.execute('SELECT COUNT(id)FROM Club')
+        amount=cursor.fetchall()
+        for x in range(amount):
+            query='SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club WHERE id=?'
+            cursor.execute(query,(x,))
+            clubs=cursor.fetchall()
         time='SELECT Time.time FROM Club JOIN ClubTime ON ClubTime.cid=Club.id JOIN Time ON Time.id=ClubTime.tid WHERE Club.id=?;'
         days='SELECT Day.day FROM Club JOIN ClubDay ON ClubDay.cid=Club.id JOIN Day ON Day.id=ClubDay.cid WHERE Club.id=?;'
         #time and days are for when i add the sorting functionality

@@ -75,8 +75,10 @@ article{
     border-top-width:0;
     position:fixed;
 }
+.sidenav p{
+    margin-left:1vw;
+}
 .divpoints p{
-    padding: 1vw;
     text-align: left;
     font-size: 90%;
 }

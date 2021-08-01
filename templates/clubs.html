@@ -28,8 +28,28 @@
 </div>
 {% endblock %}
 {% block sidebar %}
-<h4>Sort By:</h4>
-<p>day<br>category<br>time</p>
-<h4>Order By:</h4>
-<p>alphabet<br>random<br>member count</p>
+<form>
+  <h4>Sort By:</h4>
+  <label for=categories>category:</label><br>
+  <select name=categories>
+    <option value=0>none</option>
+    <option value=1>leadership</option>
+    <option value=2>art</option>
+    <option value=3>dance</option>
+    <option value=4>drama</option>
+    <option value=5>music</option>
+    <option value=6>academic</option>
+    <option value=7>sports</option>
+    <option value=8>games</option>
+    <option value=9>other</option>
+  </select>
+  <p>day<input type="checkbox"><br>category<br>time</p>
+  <h4>Order By:</h4>
+  <p><input type=radio id=alphabet name=sort><label for=alphabet>alphabet</label><br>
+    <input type=radio id=random name=sort><label for=random>random</label><br>
+    <input type=radio id=members name=sort><label for=members>member count</label><br>
+    <input type=radio id=date name=sort><label for=date>date created</label></p>
+  <button type="submit">Update</button>
+</form>
+  
 {% endblock %}
