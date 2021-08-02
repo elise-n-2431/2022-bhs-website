@@ -77,20 +77,33 @@ def home():
         content.append(item)
     return render_template('home.html', num1=num1,num2=num2,num3=num3,name1=name1,name2=name2,name3=name3,col1=col1,col2=col2,col3=col3,content=content,week=week,date=date)
 
-@app.route('/clubs')
+@app.route('/clubs', methods=['POST','GET'])
 #create a page displaying the clubs
 def clubs():
     with sqlite3.connect("db/Clubs.db") as connection:
-        cursor=connection.cursor()
-        cursor.execute('SELECT COUNT(id)FROM Club')
-        amount=cursor.fetchall()
-        for x in range(amount):
-            query='SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club WHERE id=?'
-            cursor.execute(query,(x,))
+        if request.method=='POST':
+            categories=request.form['categories']
+            clubs=[]
+            cursor=connection.cursor()
+            cursor.execute('SELECT COUNT(id)FROM Club')
+            amount=cursor.fetchall()
+            for item in amount:
+                for x in range(item[0]):
+                    x1=x+1
+                    query='SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club WHERE id=?'
+                    cursor.execute(query,(x1,))
+                    fetch=cursor.fetchall()
+                    query2='SELECT Days.day FROM DaysClubs JOIN Club ON Club.id=DaysClubs.clubid JOIN Days ON Days.id=DaysClubs.daysid WHERE Club.id=?'
+                    cursor.execute(query2,(x1,))
+                    fetch2=cursor.fetchall()
+                    for day in fetch2:
+                        if day==categories:
+                            for club in fetch:
+                                clubs.append(club)
+        else:
+            cursor=connection.cursor()
+            cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
             clubs=cursor.fetchall()
-        time='SELECT Time.time FROM Club JOIN ClubTime ON ClubTime.cid=Club.id JOIN Time ON Time.id=ClubTime.tid WHERE Club.id=?;'
-        days='SELECT Day.day FROM Club JOIN ClubDay ON ClubDay.cid=Club.id JOIN Day ON Day.id=ClubDay.cid WHERE Club.id=?;'
-        #time and days are for when i add the sorting functionality
     return render_template("clubs.html",clubs=clubs,week=week,date=date)
 
 
