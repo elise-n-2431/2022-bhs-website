@@ -83,23 +83,26 @@ def clubs():
     with sqlite3.connect("db/Clubs.db") as connection:
         if request.method=='POST':
             categories=request.form['categories']
-            clubs=[]
-            cursor=connection.cursor()
-            cursor.execute('SELECT COUNT(id)FROM Club')
-            amount=cursor.fetchall()
-            for item in amount:
-                for x in range(item[0]):
-                    x1=x+1
-                    query='SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club WHERE id=?'
-                    cursor.execute(query,(x1,))
-                    fetch=cursor.fetchall()
-                    query2='SELECT Days.day FROM DaysClubs JOIN Club ON Club.id=DaysClubs.clubid JOIN Days ON Days.id=DaysClubs.daysid WHERE Club.id=?'
-                    cursor.execute(query2,(x1,))
-                    fetch2=cursor.fetchall()
-                    for day in fetch2:
-                        if day==categories:
-                            for club in fetch:
-                                clubs.append(club)
+            if categories=='0':
+                cursor=connection.cursor()
+                cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
+                clubs=cursor.fetchall()
+            else:
+                clubs=[]
+                cursor=connection.cursor()
+                cursor.execute('SELECT COUNT(id)FROM Club')
+                amount=cursor.fetchall()
+                for item in amount:
+                    for x in range(item[0]):
+                        x1=x+1
+                        query='SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club WHERE id=?'
+                        cursor.execute(query,(x1,))
+                        fetch=cursor.fetchall()
+                        for category in fetch:
+                            cat=int(category[5])
+                            categories=int(categories)
+                            if cat==categories:
+                                clubs.append(category)
         else:
             cursor=connection.cursor()
             cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
