@@ -29,10 +29,15 @@
 {% endblock %}
 {% block sidebar %}
 <form method=POST>
+  <h4>Order By:</h4>
+  <p><input type=radio id=alphabet name=sort ><label for=alphabet>alphabet</label><br>
+    <input type=radio id=random name=sort><label for=random>random</label><br>
+    <input type=radio id=members name=sort><label for=members>member count</label><br>
+    <input type=radio id=date name=sort><label for=date>date created</label></p>
   <h4>Sort By:</h4>
   <p><label for=categories>Category:</label><br>
     <select name=categories>
-      <option value=0>none</option>
+      <option value=0>all</option>
       <option value=1>leadership</option>
       <option value=2>art</option>
       <option value=3>dance</option>
@@ -44,18 +49,13 @@
       <option value=9>other</option>
     </select></p>
 
-  <p>Day:<br><input type=checkbox id=1><label for=1>monday</label><br>
-    <input type=checkbox id=2><label for=2>tuesday</label><br>
-    <input type=checkbox id=3><label for=3>wednesday</label><br>
-    <input type=checkbox id=4><label for=4>thursday</label><br>
-    <input type=checkbox id=5><label for=5>friday</label><br>
-    <input type=checkbox id=6><label for=6>weekend</label><br>   <input type=checkbox id=none><label for=none>none</label><br>
-    <input type=checkbox id=7><label for=7>other</label><br></p>
-  <h4>Order By:</h4>
-  <p><input type=radio id=alphabet name=sort><label for=alphabet>alphabet</label><br>
-    <input type=radio id=random name=sort><label for=random>random</label><br>
-    <input type=radio id=members name=sort><label for=members>member count</label><br>
-    <input type=radio id=date name=sort><label for=date>date created</label></p>
+  <p>Day:<br><input type=checkbox id=1 checked=checked><label for=1>monday</label><br>
+    <input type=checkbox id=2 checked=checked><label for=2>tuesday</label><br>
+    <input type=checkbox id=3 checked=checked><label for=3>wednesday</label><br>
+    <input type=checkbox id=4 checked=checked><label for=4>thursday</label><br>
+    <input type=checkbox id=5 checked=checked><label for=5>friday</label><br>
+    <input type=checkbox id=6 checked=checked><label for=6>weekend</label><br>
+    <input type=checkbox id=7 checked=checked><label for=7>other</label><br></p>
   <p><button type="submit">Update</button></p>
 </form>
   

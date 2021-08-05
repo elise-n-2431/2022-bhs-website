@@ -83,6 +83,7 @@ def clubs():
     with sqlite3.connect("db/Clubs.db") as connection:
         if request.method=='POST':
             categories=request.form['categories']
+            #days=request.form[1]
             if categories=='0':
                 cursor=connection.cursor()
                 cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
@@ -90,19 +91,18 @@ def clubs():
             else:
                 clubs=[]
                 cursor=connection.cursor()
-                cursor.execute('SELECT COUNT(id)FROM Club')
-                amount=cursor.fetchall()
-                for item in amount:
-                    for x in range(item[0]):
-                        x1=x+1
-                        query='SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club WHERE id=?'
-                        cursor.execute(query,(x1,))
-                        fetch=cursor.fetchall()
-                        for category in fetch:
-                            cat=int(category[5])
-                            categories=int(categories)
-                            if cat==categories:
-                                clubs.append(category)
+                cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions,club.id FROM Club')
+                fetch=cursor.fetchall()
+                for club in fetch:
+                    print(club)
+                    print(club[5])
+                    query='SELECT DaysClubs.daysid FROM DaysClubs JOIN Club ON Club.id=DaysClubs.clubid WHERE Club.id=?'
+                    cursor.execute(query,(club[7],))
+                    days=cursor.fetchall()
+                    cat=int(club[5])
+                    categories=int(categories)
+                    if cat==categories:
+                        clubs.append(club)
         else:
             cursor=connection.cursor()
             cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
