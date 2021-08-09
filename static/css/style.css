@@ -54,6 +54,9 @@ header p{
     border-left-color: white;
     border-left-style: solid;
 }
+.material-icons{
+    padding:2vw;
+}
 article{
     background-color: white;
     position:absolute;

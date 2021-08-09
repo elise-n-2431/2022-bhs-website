@@ -83,8 +83,8 @@ def clubs():
     with sqlite3.connect("db/Clubs.db") as connection:
         if request.method=='POST':
             categories=request.form['categories']
-            #days=request.form[1]
-            if categories=='0':
+            dayvar=request.form['day']
+            if categories=='0'and dayvar=='0':
                 cursor=connection.cursor()
                 cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
                 clubs=cursor.fetchall()
@@ -94,15 +94,16 @@ def clubs():
                 cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions,club.id FROM Club')
                 fetch=cursor.fetchall()
                 for club in fetch:
-                    print(club)
-                    print(club[5])
                     query='SELECT DaysClubs.daysid FROM DaysClubs JOIN Club ON Club.id=DaysClubs.clubid WHERE Club.id=?'
                     cursor.execute(query,(club[7],))
                     days=cursor.fetchall()
-                    cat=int(club[5])
-                    categories=int(categories)
-                    if cat==categories:
-                        clubs.append(club)
+                    for day in days:
+                        dayvar=int(dayvar)
+                        if day==dayvar:
+                            cat=int(club[5])
+                            categories=int(categories)
+                            if cat==categories:
+                                clubs.append(club)
         else:
             cursor=connection.cursor()
             cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')

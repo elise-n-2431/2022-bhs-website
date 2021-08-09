@@ -30,33 +30,45 @@
 {% block sidebar %}
 <form method=POST>
   <h4>Order By:</h4>
-  <p><input type=radio id=alphabet name=sort ><label for=alphabet>alphabet</label><br>
-    <input type=radio id=random name=sort><label for=random>random</label><br>
-    <input type=radio id=members name=sort><label for=members>member count</label><br>
-    <input type=radio id=date name=sort><label for=date>date created</label></p>
+  <p><input type=radio id=alphabet name=sort ><label for=alphabet>Alphabet</label><br>
+    <input type=radio id=random name=sort><label for=random>Random</label><br>
+    <input type=radio id=members name=sort><label for=members>Member count</label><br>
+    <input type=radio id=date name=sort><label for=date>Date created</label></p>
   <h4>Sort By:</h4>
   <p><label for=categories>Category:</label><br>
     <select name=categories>
-      <option value=0>all</option>
-      <option value=1>leadership</option>
-      <option value=2>art</option>
-      <option value=3>dance</option>
-      <option value=4>drama</option>
-      <option value=5>music</option>
-      <option value=6>academic</option>
-      <option value=7>sports</option>
-      <option value=8>games</option>
-      <option value=9>other</option>
+      <option value=0>All</option>
+      <option value=1>Leadership</option>
+      <option value=2>Art</option>
+      <option value=3>Dance</option>
+      <option value=4>Drama</option>
+      <option value=5>Music</option>
+      <option value=6>Academic</option>
+      <option value=7>Sports</option>
+      <option value=8>Games</option>
+      <option value=9>Other</option>
     </select></p>
 
-  <p>Day:<br><input type=checkbox id=1 checked=checked><label for=1>monday</label><br>
-    <input type=checkbox id=2 checked=checked><label for=2>tuesday</label><br>
-    <input type=checkbox id=3 checked=checked><label for=3>wednesday</label><br>
-    <input type=checkbox id=4 checked=checked><label for=4>thursday</label><br>
-    <input type=checkbox id=5 checked=checked><label for=5>friday</label><br>
-    <input type=checkbox id=6 checked=checked><label for=6>weekend</label><br>
-    <input type=checkbox id=7 checked=checked><label for=7>other</label><br></p>
+  <p><label for=day>Day:</label><br>
+    <select name=day>
+      <option value=0>All</option>
+      <option value=1>Monday</option>
+      <option value=2>Tuesday</option>
+      <option value=3>Wednesday</option>
+      <option value=4>Thursday</option>
+      <option value=5>Friday</option>
+      <option value=6>Weekend</option>
+      <option value=7>Other</option>
+    </select>
   <p><button type="submit">Update</button></p>
+<script>
+  function validate(){
+    if (document.getElementById('2').checked{
+      alert("checked");
+    }
+  }
+</script>
 </form>
+
   
 {% endblock %}
