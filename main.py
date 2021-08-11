@@ -86,12 +86,12 @@ def clubs():
             dayvar=request.form['day']
             if categories=='0'and dayvar=='0':
                 cursor=connection.cursor()
-                cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
+                cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club ORDER BY Club.title')
                 clubs=cursor.fetchall()
             else:
                 clubs=[]
                 cursor=connection.cursor()
-                cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions,club.id FROM Club')
+                cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions,club.id FROM Club ORDER BY Club.title')
                 fetch=cursor.fetchall()
                 for club in fetch:
                     if dayvar=='0':
