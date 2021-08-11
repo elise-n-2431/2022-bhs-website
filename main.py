@@ -94,16 +94,25 @@ def clubs():
                 cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions,club.id FROM Club')
                 fetch=cursor.fetchall()
                 for club in fetch:
-                    query='SELECT DaysClubs.daysid FROM DaysClubs JOIN Club ON Club.id=DaysClubs.clubid WHERE Club.id=?'
-                    cursor.execute(query,(club[7],))
-                    days=cursor.fetchall()
-                    for day in days:
-                        dayvar=int(dayvar)
-                        if day==dayvar:
-                            cat=int(club[5])
-                            categories=int(categories)
-                            if cat==categories:
-                                clubs.append(club)
+                    if dayvar=='0':
+                        cat=int(club[5])
+                        categories=int(categories)
+                        if cat==categories:
+                            clubs.append(club)
+                    else:
+                        query='SELECT DaysClubs.daysid FROM DaysClubs JOIN Club ON Club.id=DaysClubs.clubid WHERE Club.id=?'
+                        cursor.execute(query,(club[7],))
+                        days=cursor.fetchall()
+                        for day in days:
+                            dayvar=int(dayvar)
+                            day=int(day[0])
+                            if day==dayvar:
+                                cat=int(club[5])
+                                categories=int(categories)
+                                if cat==categories:
+                                    clubs.append(club)
+                                if categories==0:
+                                    clubs.append(club)
         else:
             cursor=connection.cursor()
             cursor.execute('SELECT Club.title,Club.room,Club."desc",Club.contact,Club.teachcode,Club.category,club.restrictions FROM Club')
