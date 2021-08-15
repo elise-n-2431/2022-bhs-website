@@ -66,7 +66,7 @@ def home():
         third=division
     #define division values, name and colour eg.num1=largest number, name3=name of div with least points etc.
     num1=first[1]; num2=second[1]; num3=third[1]; name1=first[0]; name2=second[0]; name3=third[0]; col1=first[2]; col2=second[2]; col3=third[2]
-    contents=connectsql("db/HomePageContent.db","SELECT content,colour,image,width,height,link,target FROM Content ORDER BY box")
+    contents=connectsql("db/HomePageContent.db","SELECT content,colour,image,width,height,link,target,iframe FROM Content ORDER BY box")
     content=[]
     for item in contents:
         if item[2]!=None:

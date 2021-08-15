@@ -3,16 +3,22 @@
 <div class=main>
         {%for item in content%}
                 {%if item[2]==None%}
-                        {%if item[5]==None%}
-                                <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
-                                        <textarea disabled=true readonly style=width:{{item[3]}}vw;height:{{item[4]}}vw;>{{item[0]}}</textarea>
+                        {%if item[7]!=None%}
+                                <div class=iframecontainer style=width:{{item[3]}}vw;height:{{item[4]}}vw;>
+                                        <iframe class=ifram src="{{item[7]}}"></iframe>
                                 </div>
                         {%else%}
-                                <a href='{{item[5]}}' target=_{{item[6]}}>
+                                {%if item[5]==None%}
                                         <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
-                                                <textarea disabled=true readonly style=width:{{item[3]}}vw;height:{{item[4]}}vw;cursor:pointer;>{{item[0]}}</textarea>
+                                                <textarea disabled=true readonly style=width:{{item[3]}}vw;height:{{item[4]}}vw;>{{item[0]}}</textarea>
                                         </div>
-                                </a>
+                                {%else%}
+                                        <a href='{{item[5]}}' target=_{{item[6]}}>
+                                                <div class=block1 style=background-color:#{{item[1]}};width:{{item[3]}}vw;height:{{item[4]}}vw;>
+                                                        <textarea disabled=true readonly style=width:{{item[3]}}vw;height:{{item[4]}}vw;cursor:pointer;>{{item[0]}}</textarea>
+                                                </div>
+                                        </a>
+                                {%endif%}
                         {%endif%}
                 {%else%}
                         {%if item[5]==None%}
@@ -30,7 +36,7 @@
                         {%endif%}
                 {%endif%}
         {%endfor%}    
-<iframe src="https://www.google.com/maps/d/embed?mid=1XiaLhvYmOrLqXlZq8JjyQrEImO0CnPuN" width="640" height="480"></iframe>
+<!--<iframe src="https://www.google.com/maps/d/embed?mid=1XiaLhvYmOrLqXlZq8JjyQrEImO0CnPuN" width="640" height="480"></iframe>-->
 </div>
 {% endblock %}
 {% block sidebar %}
