@@ -137,7 +137,7 @@ td{
     text-decoration: none;
     color: black;
 }
-a{
+.sidenav a{
     text-decoration:none;
 }
 .divpointsform{
@@ -263,6 +263,7 @@ textarea{
 }
 .printcontent h4{
     margin: 0.5vw 0;
+    text-align:left;
 }
 .printcontent p{
     margin:0;
