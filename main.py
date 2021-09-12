@@ -182,6 +182,5 @@ def links():
 def printing():
     return render_template('printing.html',week=week,date=date)
 
-
 if __name__=="__main__":
     app.run(debug=True)
