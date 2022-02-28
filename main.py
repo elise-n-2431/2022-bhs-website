@@ -47,8 +47,7 @@ def home():
     north = ['North', 0]
     south = ['South', 0]
     west = ['West', 0]
-    results = connectsql("db/Divisionalpoints.db", "SELECT colour, \
-                         name FROM Divisions")
+    results = connectsql("db/Divisionalpoints.db", "SELECT colour, name FROM Divisions")
     # fetch and list the colour and name for each division
     for result in results:
         if result[1] == 'north':
@@ -105,7 +104,7 @@ def home():
         content.append(item)
     ''' display the home.html page with all of the variables used as their
     corresponding variables within the page'''
-    return render_template('home.html', num1=num1, num2=num2, num3=num3,
+    return render_template('home2.html', num1=num1, num2=num2, num3=num3,
                            name1=name1, name2=name2, name3=name3, col1=col1,
                            col2=col2, col3=col3, content=content, week=week,
                            date=date)
@@ -186,8 +185,8 @@ def clubs():
 def divpoints():
     if request.method == 'POST':
         password = request.form['Password']
-        passwordconfirm = connectsql("db/Divisionalpoints.db", "SELECT passwo\
-            rd FROM Admin WHERE id=1")
+        passwordconfirm = connectsql("db/Divisionalpoints.db", "SELECT password\
+                                     FROM Admin WHERE id=1")
         for passworditem in passwordconfirm:
             if password == passworditem[0]:
                 north = request.form['North']
@@ -224,10 +223,6 @@ def divpoints():
     return render_template('divisionalpoints.html', results=results,
                            week=week, date=date)
 
-
-@app.route('/library')
-def library():
-    return render_template('library.html', week=week, date=date)
 
 
 @app.route('/links')
