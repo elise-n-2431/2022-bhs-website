@@ -19,6 +19,66 @@
         </tr>
         {% endfor %}
     </table>
+    <br><br>
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+    <p id='demo'></p>
+    <script>
+        var xValues=[0,];
+        var yNorth=[];
+        var ySouth=[];
+        var yWest=[];
+        var northtotal=0;
+        var southtotal=0;
+        var westtotal=0;
+    </script>
+    {%for item in results[::-1]%}
+        <script>
+            xValues.push('{{item[4]}}');
+            console.log(xValues);
+            yNorth.push(northtotal);
+            northtotal+= {{item[0]}};
+            console.log(yNorth);
+            ySouth.push(southtotal);
+            southtotal+= {{item[1]}};
+            console.log(ySouth);
+            yWest.push(westtotal);
+            westtotal+= {{item[2]}};
+            console.log(yWest);
+        </script>
+    {%endfor%}
+    <script>
+        yNorth.push(northtotal)
+        ySouth.push(southtotal)
+        yWest.push(westtotal)
+        new Chart("myChart", {
+            type: "line",
+            data: {
+            labels: xValues,
+            datasets: [{
+                data: yNorth,
+                borderColor: "blue",
+                fill: false,
+                label: 'North',
+            },{
+                data: ySouth,
+                borderColor: "red",
+                fill: false,
+                label: 'South'
+            },{
+                data: yWest,
+                borderColor: "#fadb2d",
+                fill: false,
+                label: 'West'
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text:"Cumulative Frequency of Points by Division"
+            }
+        }
+        });
+    </script>
 {% endblock %}
 {% block sidebar %}
     <h4>Divisonal Points Entry:</h4>

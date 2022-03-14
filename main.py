@@ -220,7 +220,7 @@ def divpoints():
         cursor.execute('SELECT north, south, west, event, date\
                        FROM Points ORDER BY date DESC')
         results = cursor.fetchall()
-    return render_template('divisionalpoints.html', results=results,
+    return render_template('divisionalpoints.html', results=results, 
                            week=week, date=date)
 
 

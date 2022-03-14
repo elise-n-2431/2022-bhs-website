@@ -47,24 +47,27 @@ header input[type=text]{
 header p{
     color: white;
     text-decoration: none;
-    float:left;
+    right:40vw;
     margin-top: 0.875vw;
-    margin-left: 1.5vw;
+    margin-left: 4vw;
     padding:0.75vw;
     border-left-color: white;
     border-left-style: solid;
+    position: absolute
 }
 .material-icons{
     padding:2vw;
+    position:absolute
+    top:
 }
 article{
     background-color: white;
     position:absolute;
-    width:78vw;
     top:6.15vw;
     left:17.75vw;
-    padding-top:2vw;
-    padding-left:2vw;
+    width:80vw;
+    padding:0;
+    margin:0;
 }
 .sidenav{
     height:100%;
@@ -117,6 +120,8 @@ article{
 }
 table{
     width:82%;
+    padding-top:2vw;
+    padding-left:2vw;
 }
 h4{
     text-align:center;
@@ -165,6 +170,12 @@ input[type="submit" i]{
 .active, .clubentry:hover {
     background-color: #d9d9d9ff;
 }
+.clubs{
+    padding-top:2vw;
+    padding-left:2vw;
+}
+
+
 .clubs img{
     float:left;
     width:3.5vw;
@@ -218,9 +229,20 @@ input[type="submit" i]{
     margin:0;
 }
 .maincontent{
-    width: 40vw;
+    width: 45vw;
+    height:30vw;
+    background-color:aqua;
+    float: left;
+    margin: 2vw;
+    padding-left:2vw;
+}
+.termdates{
+    width: 22vw;
     height:50vw;
-    background-color:aqua
+    background-color:aqua;
+    padding-left:1.5vw;
+    position:absolute;
+    right:0;
 }
 textarea{
     background-color: rgba(255, 255, 255, 0);
@@ -236,7 +258,6 @@ textarea{
     margin-right:1vw;
     float:left;
     color:black;
-
 }
 
 .block2{
@@ -265,6 +286,10 @@ textarea{
     margin:0;
     margin-left: 0.5vw;
     margin-bottom:0.25vw;
+}
+.printcontent{
+    padding-top:2vw;
+    padding-left:2vw;
 }
 .printcontent h4{
     margin: 0.5vw 0;
