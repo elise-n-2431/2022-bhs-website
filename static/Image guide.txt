@@ -1,0 +1,41 @@
+How to add/remove images from the main widget on the home page:
+
+1. Make an image
+	- use a template in the 'other main widget' folder
+	- create your own image with the dimensions 800 x 500px
+		(image must follow copyright laws)
+
+2. Put image in 'live main widget folder
+	This folder should only contain images which are live on the website. Any past images are to be stored in the 'other main widget' folder.
+
+3. Open the SQLite database named 'main widget order' with the app SQLiteStudio
+
+4. Navigate to the Main Widget Order table and click on data at the top
+
+5. Add row with the same image name as the image in the folder and a URL to more information if relevant
+
+- Click the + to add a row and - to remove the selected row
+- The images will appear in the order of the order column (smallest to largest). If you want to add an image first then make the order '1' and increase every image's order value by one.
+
+6. Press the tick to apply changes
+
+
+Navigate to the live main widget folder
+
+Insert a jpg image of what you would like to show
+- Must be 800 x 500px, the image will be cropped to fit within this ratio if larger (8/5)
+
+Examples and past images can be stored within the 'other main widget' folder as many of the events will be repeated each year
+
+The images in the 'live main widget' folder will all be live on the website and the order which they are listed in is the same as the order that they will appear in. The most important images will be listed first.
+
+Some ideas to include are:
+- Cross Country date -times etc.
+- Yr 13 Formal -tickets, date
+- Swimming Sports
+- Non Uniform day- include date, theme and charity
+- Link to an update from the principal
+- Current Covid Protocol
+- Other notices eg. bakesale
+- Uniform shop info
+
