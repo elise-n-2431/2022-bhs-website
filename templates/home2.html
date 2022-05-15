@@ -2,7 +2,9 @@
 {% block content %}
     <div class="maincontent">
         <div class="slideshow">
-            <p id="identity"></p>
+            <p id="identityi">i</p>
+            <p id="identityid">id</p>
+            <p id="identityp">p</p>
             <div class="slideshow-slide">
                 <img src='/static/live main widget/image867.png'>
               
@@ -36,17 +38,44 @@
             }
             function showslides(n) {
                 let slides = document.getElementsByClassName("slideshow-slide");
+                if (n>slides.length) {n=1}
+                let i;
+                for (i=0; i<n; i++){
+                    document.getElementById('identityi').innerHTML=(i);
+                    if i>slide.length{}
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                /*let slides = document.getElementsByClassName("slideshow-slide");
                 let dots = document.getElementsByClassName("dot");
                 if (n>slides.length) {id=1}
                 if (n<1) {id=slides.length}
                 let i;
+                let num;
+                document.getElementById('identityid').innerHTML=(id);
                 for (i=0; i<id; i++){
-                    slides[i].styledisplay='none';
-                    dots[i].className = dots[i].className.replace(" active", "");}
-                slides[id-1].style.display = "block";
-                slides[id-1].className += " active";
-                setTimeout(showslides, 2000);
-                document.getElementById('identity').innerHTML=id;
+                    slides[i].style.display='none';
+                    dots[i].className = dots[i].className.replace(" active", "");
+                    document.getElementById('identityi').innerHTML=(i);}
+                for (num=2; num>id; num++){
+                    slides[num].style.display='none';
+                    dots[num].className = dots[num].className.replace(" active", "");
+                    document.getElementById('identityp').innerHTML=(num);}
+                slides[id-1].style.display = "none";
+                dots[id-1].className += " active";*/
+
             }
             
 
