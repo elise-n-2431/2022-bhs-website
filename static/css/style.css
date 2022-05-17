@@ -252,7 +252,7 @@ input[type="submit" i]{
     height:25vw;
 }
 .slideshow-slide{
-    display:none;
+
 }
 .prev, .next{
     cursor:pointer;

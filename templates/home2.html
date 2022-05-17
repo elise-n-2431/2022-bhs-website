@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div class="maincontent">
+        <p id="identityi">i</p>
+        <p id="identityp">p</p>
+        <p id="identityid">id</p>
+
         <div class="slideshow">
-            <p id="identityi">i</p>
-            <p id="identityid">id</p>
-            <p id="identityp">p</p>
             <div class="slideshow-slide">
                 <img src='/static/live main widget/image867.png'>
-              
             </div>
 
             <div class="slideshow-slide">
@@ -29,31 +29,25 @@
         </div>
         <script>
             let id = 1;
+            document.getElementById('identityid').innerHTML=(id);
             showslides(id);
             function increaseid(n) {
-                showslides(id+=n)
-            }
-            function currentSlide(n) {
-                showslides(id=n);
-            }
+                showslides(id+=n)}
             function showslides(n) {
-                let slides = document.getElementsByClassName("slideshow-slide");
-                if (n>slides.length) {n=1}
                 let i;
-                for (i=0; i<n; i++){
+                let p;
+                let slides = document.getElementsByClassName("slideshow-slide");
+                if (n>slides.length) {id=1}
+                for (i=0; i<id; i++){
+                    slides[i].style.display="none";
                     document.getElementById('identityi').innerHTML=(i);
-                    if i>slide.length{}
                 }
-
-
-
-
-
-
-
-
-
-
+                document.getElementById('identityid').innerHTML=(id);
+                for (p=slides.length; p>id; p--){
+                    slides[p].style.display="none";
+                    document.getElementById('identityp').innerHTML=(p);
+                }
+            }
 
 
 
@@ -76,7 +70,7 @@
                 slides[id-1].style.display = "none";
                 dots[id-1].className += " active";*/
 
-            }
+            
             
 
 
