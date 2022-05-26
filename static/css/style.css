@@ -1,6 +1,6 @@
 body{
     font-family: 'Raleway', sans-serif;
-    margin: 0px 0px 0px 0px;
+    margin: 0;
     background-color: white;
     background-size: 30vw, 15.0857142857vw;
     overflow-x: hidden;
@@ -250,9 +250,6 @@ input[type="submit" i]{
 .slideshow{
     width:40vw;
     height:25vw;
-}
-.slideshow-slide{
-
 }
 .prev, .next{
     cursor:pointer;

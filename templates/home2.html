@@ -1,22 +1,26 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div class="maincontent">
-        <p id="identityi">i</p>
-        <p id="identityp">p</p>
-        <p id="identityid">id</p>
+        <p>{{namelist}}</p>
+        <p>{{namecount}}</p>
+        <div class="slideshow"></div>
+            {% for n in range(namecount) %} 
+                <div class="slideshow-slide">
+                    <img src='/static/live main widget/{{name[n]}}'>
+                </div>
+                <p>{{name[n]}}</p>
+            {%endfor%}
 
-        <div class="slideshow">
+            <!--<div class="slideshow-slide">
+                <img src='/static/live main widget/2.jpg'>
+            </div>
+
             <div class="slideshow-slide">
                 <img src='/static/live main widget/image867.png'>
             </div>
-
             <div class="slideshow-slide">
-                <img src='/static/live main widget/2.jpeg'>
-            </div>
-
-            <div class="slideshow-slide">
-                <img src='/static/live main widget/image867.png'>
-            </div>
+                <img src='/static/live main widget/t2newsletter.jpg'>
+            </div>-->
             <a class="prev" onclick="increaseid(-1)">&#10094;</a>
             <a class="next" onclick="increaseid(1)">&#10095;</a>
         </div>
@@ -28,52 +32,22 @@
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
         <script>
-            let id = 1;
-            document.getElementById('identityid').innerHTML=(id);
+            var id = 1;
             showslides(id);
             function increaseid(n) {
-                showslides(id+=n)}
+                id+=n;
+                showslides(id);
+                }
             function showslides(n) {
                 let i;
-                let p;
                 let slides = document.getElementsByClassName("slideshow-slide");
-                if (n>slides.length) {id=1}
-                for (i=0; i<id; i++){
-                    slides[i].style.display="none";
-                    document.getElementById('identityi').innerHTML=(i);
-                }
-                document.getElementById('identityid').innerHTML=(id);
-                for (p=slides.length; p>id; p--){
-                    slides[p].style.display="none";
-                    document.getElementById('identityp').innerHTML=(p);
+                if (n>slides.length) {id=1};
+                if (n<1) {id=slides.length};
+                for (i=0; i<slides.length; i++){
+                    if (i==id-1){slides[i].style.display= "block";}
+                    else slides[i].style.display= "none";
                 }
             }
-
-
-
-
-                /*let slides = document.getElementsByClassName("slideshow-slide");
-                let dots = document.getElementsByClassName("dot");
-                if (n>slides.length) {id=1}
-                if (n<1) {id=slides.length}
-                let i;
-                let num;
-                document.getElementById('identityid').innerHTML=(id);
-                for (i=0; i<id; i++){
-                    slides[i].style.display='none';
-                    dots[i].className = dots[i].className.replace(" active", "");
-                    document.getElementById('identityi').innerHTML=(i);}
-                for (num=2; num>id; num++){
-                    slides[num].style.display='none';
-                    dots[num].className = dots[num].className.replace(" active", "");
-                    document.getElementById('identityp').innerHTML=(num);}
-                slides[id-1].style.display = "none";
-                dots[id-1].className += " active";*/
-
-            
-            
-
-
 
         </script>
     </div>

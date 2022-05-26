@@ -88,26 +88,16 @@ def home():
     col1 = first[2]
     col2 = second[2]
     col3 = third[2]
-    # fetch the box contents for the main page from the database
-    contents = connectsql("db/HomePageContent.db", "SELECT content, colour, \
-                          image, width, height, link, target, iframe FROM \
-                          Content ORDER BY box")
-    content = []
-    for item in contents:
-        ''' if there is an image in the image coloumn, make the dimensions
-        larger as the border will be removed'''
-        if item[2] != None:
-            item = list(item)
-            item[3] = item[3]+2
-            item[4] = item[4]+2
-            item = tuple(item)
-        content.append(item)
-    ''' display the home.html page with all of the variables used as their
-    corresponding variables within the page'''
+    namecount=connectsql("db/SlideShow.db", "SELECT COUNT(name) FROM 'order'")
+    namelist=[]
+    for i in range(namecount):
+        name=connectsql(f"db/SlideShow.db", "SELECT {i} FROM 'order'")
+        namelist.append(name)
+    
     return render_template('home2.html', num1=num1, num2=num2, num3=num3,
                            name1=name1, name2=name2, name3=name3, col1=col1,
-                           col2=col2, col3=col3, content=content, week=week,
-                           date=date)
+                           col2=col2, col3=col3, week=week,
+                           date=date,namelist=namelist,namecount=namecount)
 
 
 @app.route('/clubs', methods=['POST', 'GET'])
