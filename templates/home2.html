@@ -1,26 +1,14 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div class="maincontent">
-        <p>{{namelist}}</p>
-        <p>{{namecount}}</p>
-        <div class="slideshow"></div>
+        <div class="slideshow">
             {% for n in range(namecount) %} 
                 <div class="slideshow-slide">
-                    <img src='/static/live main widget/{{name[n]}}'>
+                    {% for r in namelist[n] %}
+                        <img src='/static/live main widget/{{r[0]}}'>
+                    {% endfor %}
                 </div>
-                <p>{{name[n]}}</p>
-            {%endfor%}
-
-            <!--<div class="slideshow-slide">
-                <img src='/static/live main widget/2.jpg'>
-            </div>
-
-            <div class="slideshow-slide">
-                <img src='/static/live main widget/image867.png'>
-            </div>
-            <div class="slideshow-slide">
-                <img src='/static/live main widget/t2newsletter.jpg'>
-            </div>-->
+            {% endfor %}
             <a class="prev" onclick="increaseid(-1)">&#10094;</a>
             <a class="next" onclick="increaseid(1)">&#10095;</a>
         </div>

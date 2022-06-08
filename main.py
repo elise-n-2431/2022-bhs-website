@@ -89,9 +89,11 @@ def home():
     col2 = second[2]
     col3 = third[2]
     namecount=connectsql("db/SlideShow.db", "SELECT COUNT(name) FROM 'order'")
+    for namec in namecount:
+        namecount=namec[0]
     namelist=[]
     for i in range(namecount):
-        name=connectsql(f"db/SlideShow.db", "SELECT {i} FROM 'order'")
+        name=connectsql("db/SlideShow.db", f'SELECT name FROM "Order" WHERE "order"={i+1}')
         namelist.append(name)
     
     return render_template('home2.html', num1=num1, num2=num2, num3=num3,
