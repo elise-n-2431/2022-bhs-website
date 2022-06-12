@@ -59,7 +59,7 @@ header p{
     border-left-style: solid;
     position: absolute
 }
-.material-icons{
+.menu,.search{
     padding:2vw;
     position:absolute;
     right:38vw;
@@ -241,17 +241,15 @@ input[type="submit" i]{
     margin:0;
 }
 .maincontent{
-    width: 40vw;
-    height:25vw;
-    background-color:lightgrey;
-    float: left;
     margin: 2vw;
     padding-left:0vw;
 }
-.maincontent img{
+.slideshow img{
     width: 40vw;
     height: 25vw;
     object-fit: fill;
+    float:left;
+    margin:2vw;
 }
 .slideshow{
     width:40vw;
@@ -270,8 +268,6 @@ input[type="submit" i]{
     height:10px;
     width:10px;
 }
-
-
 .termdates{
     width: 22vw;
     height:50vw;
@@ -295,7 +291,6 @@ textarea{
     float:left;
     color:black;
 }
-
 .block2{
     padding:0;
     margin-bottom
@@ -340,8 +335,26 @@ textarea{
 
 }
 @media only screen and (max-width: 600px) {
-    .cornertriangles,.cornertriangles2,.sidenav,article{
+    .cornertriangles,.cornertriangles2,.sidenav,.termdates{
         display:none;
+    }
+    article{
+        left:0;
+        top:0;
+    }
+    .slideshow img{
+        position:relative;
+        top:40vw;
+        width:90vw;
+        height:56.25vw;
+        left:0;
+        margin-left:0;
+        padding-left:0;
+    }
+    .slideshow a{
+        position:relative;
+        top:40vw;
+        left:40vw;
     }
     .cornertrianglesmobile{
         display:block;
@@ -358,11 +371,12 @@ textarea{
     header{
         height:18vw;
     }
-    .material-icons{
+    .menu{
         right:38vw;
-        top:6vw;
+        top:20vw;
+        z-index:4;
     }
-    .material-icons-search{
+    .search{
         right:38vw;
         top:6vw;
     }
