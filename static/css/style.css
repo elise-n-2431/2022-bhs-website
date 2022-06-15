@@ -186,8 +186,6 @@ input[type="submit" i]{
     padding-top:2vw;
     padding-left:2vw;
 }
-
-
 .clubs img{
     float:left;
     width:3.5vw;
@@ -261,7 +259,7 @@ input[type="submit" i]{
     user-select: none;
 }
 .prev:hover, .next:hover{
-    color:aqua
+    color:grey;
 }
 .dot{
     border-radius: 50%;
@@ -343,18 +341,13 @@ textarea{
         top:0;
     }
     .slideshow img{
-        position:relative;
+        position:fixed;
         top:40vw;
         width:90vw;
         height:56.25vw;
-        left:0;
-        margin-left:0;
+        left:5.1vw;
+        margin:0;
         padding-left:0;
-    }
-    .slideshow a{
-        position:relative;
-        top:40vw;
-        left:40vw;
     }
     .cornertrianglesmobile{
         display:block;
@@ -372,12 +365,26 @@ textarea{
         height:18vw;
     }
     .menu{
+        display:inline-block;
         right:38vw;
         top:20vw;
         z-index:4;
     }
     .search{
-        right:38vw;
+        position:fixed;
+        right:5vw;
         top:6vw;
+        z-index:5;
+    }
+    .prev,.next{
+        position:fixed;
+        top:65vw;
+        transition: max-height 0s ease-out;
+    }
+    .next{
+        right:2vw;
+    }
+    .prev{
+        left:2vw;
     }
   }
