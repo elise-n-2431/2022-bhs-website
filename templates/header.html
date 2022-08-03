@@ -14,8 +14,43 @@
     <a href="/" class="material-icons" style=color:white>search</a>
 </div>
 <div class="menu">
-    <a href="/clubs" class="material-icons" style=color:black>menu</i>
+    <p class="material-icons" style=color:black onclick="opennav ()">menu</p>
 </div>
+<div class="navigation" id="navigation" style="width:0px">
+    <div class="nav-content" id="nav-content">
+        <!--the links that will be displayed on mobile when the menu button is clicked (same as above)-->
+        <a id="nav-link0" style="margin-top:5vw;" href="/">Home</a>
+        <a id="nav-link1" href="/clubs">Clubs</a>
+        <a id="nav-link2" href="http://opac.burnside.school.nz:2000/#!dashboard" target="_blank">Library</a>
+        <a id="nav-link3" href="/printing">Printing</a>
+        <a id="nav-link4" href="/links">Links</a>
+        <a id="nav-link5" href="https://sites.google.com/a/burnside.school.nz/bhs_senior-division/" target="_blank">Seniors</a>
+    </div>
+</div>
+
+<script>
+    // if the menu button is clicked, do function
+    function opennav(){
+        // toggle the menu sidebar on or off
+        x=document.getElementById("navigation");
+        if (x.style.width==='0px'){
+            // change the width of the navigation to the opposite of what it was
+            x.style.width="62.2vw"; 
+            // change the link widths so they transition together
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`nav-link${i}`).style.width='40vw';  
+                document.getElementById(`nav-link${i}`).style.color='black'; 
+                document.getElementById(`nav-link${i}`).style.padding='3vw'; 
+            }
+        }
+        else{
+            x.style.width="0";
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`nav-link${i}`).style.width='0';
+                document.getElementById(`nav-link${i}`).style.color='rgba(0,0,0,0)';  
+                document.getElementById(`nav-link${i}`).style.padding="3vw 0vw 3vw 0vw"; 
+            }
+        }
+    }
     
-
-
+</script>

@@ -1,62 +1,91 @@
 {% extends 'layout.html' %}
 {% block content %}
 <div class=clubs>
-  {%for club in clubs%}
-    <button type="button" class="clubentry"><img src="static/css/{{club[5]}}icon.png"><p>{{club[0]}}</p></button>
-    <div class="content">
-      <p>{{club[2]}}</p>
-      <p>Contact: {{club[3]}} <br>Teacher's Code: {{club[4]}}<br>Restrictions: {{club[6]}}</p>
+    {%for club in clubs%}
+        <button type="button" class="clubentry"><img src="static/css/{{club[5]}}icon.png"><p>{{club[0]}}</p></button>
+        <div class="content">
+        <p>{{club[2]}}</p>
+        <p>Contact: {{club[3]}} <br>Teacher's Code: {{club[4]}}<br>Restrictions: {{club[6]}}</p>
 
-    </div>
-  {%endfor%}
-  <script>
-    var coll = document.getElementsByClassName("clubentry");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
+        </div>
+    {%endfor%}
+    <script>
+        var coll = document.getElementsByClassName("clubentry");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.height){
+            content.style.height = null;
+            } else {
+            content.style.height = content.scrollHeight + "px";
+            }
+        })
         }
-      });
-    }
     </script>
 </div>
 {% endblock %}
 {% block sidebar %}
-<form method=POST>
-  <h4>Sort By:</h4>
-  <p><label for=categories>Category:</label><br>
-    <select name=categories>
-      <option value=0>All</option>
-      <option value=1>Leadership</option>
-      <option value=2>Art</option>
-      <option value=3>Dance</option>
-      <option value=4>Drama</option>
-      <option value=5>Music</option>
-      <option value=6>Academic</option>
-      <option value=7>Sports</option>
-      <option value=8>Games</option>
-      <option value=9>Other</option>
-    </select></p>
+<div class="menu">
+    <p class="material-icons" style=color:black onclick="opennav ()">menu</p>
+</div>
 
-  <p><label for=day>Day:</label><br>
-    <select name=day>
-      <option value=0>All</option>
-      <option value=1>Monday</option>
-      <option value=2>Tuesday</option>
-      <option value=3>Wednesday</option>
-      <option value=4>Thursday</option>
-      <option value=5>Friday</option>
-      <option value=6>Weekend</option>
-      <option value=7>Other</option>
-    </select>
-  <p><button type="submit">Update</button></p>
-</form>
+<div class="sort"> 
+    <form method=POST>
+        <h4>Sort By:</h4>
+        <p><label for=categories>Category:</label><br>
+            <select name=categories>
+            <option value=0>All</option>
+            <option value=1>Leadership</option>
+            <option value=2>Art</option>
+            <option value=3>Dance</option>
+            <option value=4>Drama</option>
+            <option value=5>Music</option>
+            <option value=6>Academic</option>
+            <option value=7>Sports</option>
+            <option value=8>Games</option>
+            <option value=9>Other</option>
+            </select></p>
 
+        <p><label for=day>Day:</label><br>
+            <select name=day>
+            <option value=0>All</option>
+            <option value=1>Monday</option>
+            <option value=2>Tuesday</option>
+            <option value=3>Wednesday</option>
+            <option value=4>Thursday</option>
+            <option value=5>Friday</option>
+            <option value=6>Weekend</option>
+            <option value=7>Other</option>
+            </select>
+        <p><button type="submit">Update</button></p>
+    </form>
+</div>   
+<script>
+    function opennav(){
+        // toggle the menu sidebar on or off
+        x=document.getElementById("sort");
+        if (x.style.width==='0px'){
+            // change the width of the navigation to the opposite of what it was
+            x.style.width="62.2vw"; 
+            // change the link widths so they transition together
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`nav-link${i}`).style.width='40vw';  
+                document.getElementById(`nav-link${i}`).style.color='black'; 
+                document.getElementById(`nav-link${i}`).style.padding='3vw'; 
+            }
+        }
+        else{
+            x.style.width="0";
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`nav-link${i}`).style.width='0';
+                document.getElementById(`nav-link${i}`).style.color='rgba(0,0,0,0)';  
+                document.getElementById(`nav-link${i}`).style.padding="3vw 0vw 3vw 0vw"; 
+            }
+        }
+    }
+</script>
   
 {% endblock %}

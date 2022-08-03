@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
         <div class="slideshow">
+            <!--create a slide for each image in the database-->
             {% for n in range(namecount) %} 
                 <div class="slideshow-slide">
                     {% for r in namelist[n] %}
@@ -8,34 +9,32 @@
                     {% endfor %}
                 </div>
             {% endfor %}
+            <!--buttons for scrolling through slideshow-->
             <a class="prev" onclick="increaseid(-1)">&#10094;</a>
             <a class="next" onclick="increaseid(1)">&#10095;</a>
-        </div>
-            
-        
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
         <script>
             var id = 1;
             showslides(id);
             function increaseid(n) {
+                // when either arrow button is clicked, change the slides id
                 id+=n;
                 showslides(id);
                 }
             function showslides(n) {
+                //if the new id value (n) is outside the range of slides, set it to a given value
                 let i;
                 let slides = document.getElementsByClassName("slideshow-slide");
+                // if new id is larger than largest value, reset it to 1
                 if (n>slides.length) {id=1};
+                // if new id is smaller than 1, reset it to the last slide
                 if (n<1) {id=slides.length};
+                //only display the slide wanted
                 for (i=0; i<slides.length; i++){
                     if (i==id-1){slides[i].style.display= "block";}
                     else slides[i].style.display= "none";
                 }
             }
-
         </script>
     <div class="termdates">
         <h2>Term Dates:</h2>
@@ -43,8 +42,7 @@
     </div>
 {% endblock %}
 {% block sidebar %}
-
-    <!--display the divisional points as bars with widths as percentages of the first-->
+    <!--display the divisional points as bars with widths as percentages of the winner-->
     <div class=divpoints>
     <h4>Divisional Points:</h4>
     <div class=first style='background-color: #{{col1}}'><h5>{{name1}}</h5></div>
