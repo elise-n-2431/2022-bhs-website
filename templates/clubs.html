@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block content %}
+<button class=sortbut onclick="opennav2()">menu</button>
 <div class=clubs>
     {%for club in clubs%}
         <button type="button" class="clubentry"><img src="static/css/{{club[5]}}icon.png"><p>{{club[0]}}</p></button>
@@ -26,16 +27,13 @@
         }
     </script>
 </div>
+
 {% endblock %}
 {% block sidebar %}
-<div class="menu">
-    <p class="material-icons" style=color:black onclick="opennav ()">menu</p>
-</div>
-
-<div class="sort"> 
-    <form method=POST>
-        <h4>Sort By:</h4>
-        <p><label for=categories>Category:</label><br>
+<div id="sort" class="sort" style="width:0px"> 
+    <form method=POST id="form">
+        <h4 id="label">Sort By:</h4>
+        <p><label class="categories" id="categories" for=categories>Category:</label>
             <select name=categories>
             <option value=0>All</option>
             <option value=1>Leadership</option>
@@ -49,7 +47,7 @@
             <option value=9>Other</option>
             </select></p>
 
-        <p><label for=day>Day:</label><br>
+        <p><label class="days" id="days" for=day>Day:</label>
             <select name=day>
             <option value=0>All</option>
             <option value=1>Monday</option>
@@ -64,26 +62,18 @@
     </form>
 </div>   
 <script>
-    function opennav(){
+    function opennav2(){
         // toggle the menu sidebar on or off
         x=document.getElementById("sort");
         if (x.style.width==='0px'){
             // change the width of the navigation to the opposite of what it was
-            x.style.width="62.2vw"; 
-            // change the link widths so they transition together
-            for (let i = 0; i < 6; i++) {
-                document.getElementById(`nav-link${i}`).style.width='40vw';  
-                document.getElementById(`nav-link${i}`).style.color='black'; 
-                document.getElementById(`nav-link${i}`).style.padding='3vw'; 
-            }
+            x.style.width="25vw"; 
+            // change the link widths so they transition together 
+            document.getElementById('form').style.display='block';
         }
         else{
-            x.style.width="0";
-            for (let i = 0; i < 6; i++) {
-                document.getElementById(`nav-link${i}`).style.width='0';
-                document.getElementById(`nav-link${i}`).style.color='rgba(0,0,0,0)';  
-                document.getElementById(`nav-link${i}`).style.padding="3vw 0vw 3vw 0vw"; 
-            }
+            x.style.width="0px";
+            document.getElementById('form').style.display='none';
         }
     }
 </script>

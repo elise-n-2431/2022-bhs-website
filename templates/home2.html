@@ -44,15 +44,16 @@
 {% block sidebar %}
     <!--display the divisional points as bars with widths as percentages of the winner-->
     <div class=divpoints>
-    <h4>Divisional Points:</h4>
-    <div class=first style='background-color: #{{col1}}'><h5>{{name1}}</h5></div>
-    <div class=number><p>{{num1}}</p></div>
-    <div class=second style='background-color: #{{col2}}; width:calc(({{num2}}/{{num1}})*12vw)'><h5>{{name2}}</h5></div>
-    <div class=number><p>{{num2}}</p></div>
-    <div class=second style='background-color: #{{col3}}; width:calc(({{num3}}/{{num1}})*12vw)'><h5>{{name3}}</h5></div>
-    <div class=number><p>{{num3}}</p></div>
-    <p>North, South and West are divisions competing to win the Mitchell Cup. Students can gain points for their division by participating in events such as atheletics.</p>
-    <div class='link'>
-            <a href="/divpoints"><p>More Information</p></a>
-    </div></div>
+        <h4>Divisional Points:</h4>
+        <div class=first style='background-color: #{{col1}}'><h5>{{name1}}</h5></div>
+        <div class=number><p>{{num1}}</p></div>
+        <div class=second style='background-color: #{{col2}}; width:calc(({{num2}}/{{num1}})*12vw)'><h5>{{name2}}</h5></div>
+        <div class=number><p>{{num2}}</p></div>
+        <div class=second style='background-color: #{{col3}}; width:calc(({{num3}}/{{num1}})*12vw)'><h5>{{name3}}</h5></div>
+        <div class=number><p>{{num3}}</p></div>
+        <p>North, South and West are divisions competing to win the Mitchell Cup. Students can gain points for their division by participating in events such as atheletics.</p>
+        <div class='link'>
+                <a href="/divpoints"><p>More Information</p></a>
+        </div>
+    </div>
 {% endblock %}

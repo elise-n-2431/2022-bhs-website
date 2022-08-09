@@ -39,7 +39,7 @@
             // change the link widths so they transition together
             for (let i = 0; i < 6; i++) {
                 document.getElementById(`nav-link${i}`).style.width='40vw';  
-                document.getElementById(`nav-link${i}`).style.color='black'; 
+                document.getElementById(`nav-link${i}`).style.display='block'; 
                 document.getElementById(`nav-link${i}`).style.padding='3vw'; 
             }
         }
@@ -47,7 +47,7 @@
             x.style.width="0";
             for (let i = 0; i < 6; i++) {
                 document.getElementById(`nav-link${i}`).style.width='0';
-                document.getElementById(`nav-link${i}`).style.color='rgba(0,0,0,0)';  
+                document.getElementById(`nav-link${i}`).style.display='none';  
                 document.getElementById(`nav-link${i}`).style.padding="3vw 0vw 3vw 0vw"; 
             }
         }

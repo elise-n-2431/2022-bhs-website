@@ -107,6 +107,13 @@ article{
 .sidenav p{
     margin-left:1vw;
 }
+.sortbut{
+    display:none;
+}
+.sort h4{
+    margin-left:2vw;
+    width:12vw;
+}
 .divpoints p{
     text-align: left;
     font-size: 90%;
@@ -357,7 +364,7 @@ textarea{
 }
 @media only screen and (max-width: 600px) {
     /* mobile and tablet settings */
-    .cornertriangles,.cornertriangles2,.termdates,.blackbar{
+    .cornertriangles,.cornertriangles2,.termdates,.blackbar,.divpoints{
         display:none;
     }
     article{
@@ -370,7 +377,7 @@ textarea{
     }
     .slideshow img{
         position:fixed;
-        top:0vw;
+        top:40vw;
         width:90vw;
         height:56.25vw;
         left:5.1vw;
@@ -441,15 +448,15 @@ textarea{
         display:block;
     }
     .nav-content a{
-        display:block;
+        display:none;
         padding: 3vw 0vw 3vw 0vw;
         width:0vw;
         text-decoration:none;
         background-color: white;
         margin:1.5vw 8.1vw;
         float:left;
-        transition: .5s;
-        color:rgba(0, 0, 0, 0);
+        transition: 1s;
+        color:black;
         border-radius: 1vw;
         font-weight: bold;
         font-size: 120%;
@@ -472,16 +479,40 @@ textarea{
         z-index:0;
     }
     .sort{
-        height:100%;
-        width:0vw;
-        top:0vw;
-        left:0;
+        display:block;
+        height:60vw;
+        width:0px;
+        top:40vw;
+        right:0;
+        border-top-left-radius:3vw;
+        border-bottom-left-radius: 3vw;
         border-width:0;
         display:block;
         z-index:5;
         position:fixed;
         background-color:rgba(0, 0, 0, 0.75);
-        transition:0.5s;
+        transition:.5s;
+    }
+    .form{
+        margin:0;
+    }
+    .days, .categories{
+        color:white;
+        display:block;
+    }
+    .sort h4{
+        color: white;
+        width:auto;
+        margin-left:0vw;
+    }
+    .sort select{
+        width:20vw;
+    }
+    .sortbut{
+        display:block;
+        left:0;
+        bottom:0;
+        position:relative;
     }
     .sidenav{
         height:100%;
@@ -489,9 +520,14 @@ textarea{
         top:0vw;
         left:0;
         border-width:0;
-        display:block;
         z-index:5;
         position:fixed;
         background-color:rgba(0, 0, 0, 0.75);
+    }
+    .sidenav p{
+        margin-left:2vw;
+    }
+    .sidenav .menu{
+        right: 2vw;
     }
 }
