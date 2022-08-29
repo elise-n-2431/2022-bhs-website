@@ -1,44 +1,68 @@
 {% extends 'layout.html' %}
 {% block content %}
-        <div class="slideshow">
-            <!--create a slide for each image in the database-->
-            {% for n in range(namecount) %} 
-                <div class="slideshow-slide">
-                    {% for r in namelist[n] %}
-                        <img src='/static/live main widget/{{r[0]}}'>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-            <!--buttons for scrolling through slideshow-->
-            <a class="prev" onclick="increaseid(-1)">&#10094;</a>
-            <a class="next" onclick="increaseid(1)">&#10095;</a>
-        </div>
-        <script>
-            var id = 1;
+    <div class="slideshow">
+        <!--create a slide for each image in the database-->
+        {% for n in range(namecount) %} 
+            <div class="slideshow-slide">
+                {% for r in namelist[n] %}
+                    <img src='/static/live main widget/{{r[0]}}'>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <!--buttons for scrolling through slideshow-->
+        <a class="prev" onclick="increaseid(-1)">&#10094;</a>
+        <a class="next" onclick="increaseid(1)">&#10095;</a>
+    </div>
+    <script>
+        var id = 1;
+        showslides(id);
+        function increaseid(n) {
+            // when either arrow button is clicked, change the slides id
+            id+=n;
             showslides(id);
-            function increaseid(n) {
-                // when either arrow button is clicked, change the slides id
-                id+=n;
-                showslides(id);
-                }
-            function showslides(n) {
-                //if the new id value (n) is outside the range of slides, set it to a given value
-                let i;
-                let slides = document.getElementsByClassName("slideshow-slide");
-                // if new id is larger than largest value, reset it to 1
-                if (n>slides.length) {id=1};
-                // if new id is smaller than 1, reset it to the last slide
-                if (n<1) {id=slides.length};
-                //only display the slide wanted
-                for (i=0; i<slides.length; i++){
-                    if (i==id-1){slides[i].style.display= "block";}
-                    else slides[i].style.display= "none";
-                }
             }
-        </script>
+        function showslides(n) {
+            //if the new id value (n) is outside the range of slides, set it to a given value
+            let i;
+            let slides = document.getElementsByClassName("slideshow-slide");
+            // if new id is larger than largest value, reset it to 1
+            if (n>slides.length) {id=1};
+            // if new id is smaller than 1, reset it to the last slide
+            if (n<1) {id=slides.length};
+            //only display the slide wanted
+            for (i=0; i<slides.length; i++){
+                if (i==id-1){slides[i].style.display= "block";}
+                else slides[i].style.display= "none";
+            }
+        }
+    </script>
+    
     <div class="termdates">
         <h2>Term Dates:</h2>
         <p>Term 1- 2nd Feb- 99 March</p>
+        <p>Term 2- 2nd Feb- 99 March</p>
+        <p>Term 3- 2nd Feb- 99 March</p>
+        <p>Term 4- 2nd Feb- 99 March</p>
+        <br>
+        <h2>Holidays:</h2>
+        <p>Teacher only day: 34 December</p>
+        <p>Easter: 21st-31st May</p>
+        <p>ANZAC Day: 23rd March</p>
+    </div>
+    <div class="boxes">
+        <div class="box">
+            <h4>Want to join a club? Discover new groups on the clubs page!</h4>
+            <a id="nav-link1" href="/clubs">Clubs</a>
+        </div>
+        <div class="box">
+            <h4>Guess how many lollies are in the jar and win everything inside!</h4>
+            <p>Go to the library or visit the library website to enter your guess.</p>
+            <a id="nav-link2" href="http://opac.burnside.school.nz:2000/#!dashboard" target="_blank">Library</a>
+        </div>
+        <div class="box">
+            <h4>West has won the athletics competition!!!</h4>
+            <p>The next event will be held on the lower fields on the 25th of december.<br>A notice with more information will be provided to your form teacher.<br>To view the points click<a href src=/divpoints>here</a></p>
+        </div>
     </div>
 {% endblock %}
 {% block sidebar %}

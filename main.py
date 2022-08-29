@@ -1,6 +1,7 @@
 from flask import Flask, flash, render_template, request, redirect
 import sqlite3
 import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from flask.helpers import url_for
 app = Flask(__name__)
@@ -178,9 +179,11 @@ def divpoints():
     if request.method == 'POST':
         password = request.form['Password']
         passwordconfirm = connectsql("db/Divisionalpoints.db", "SELECT password\
-                                     FROM Admin WHERE id=1")
+                                     FROM Admin WHERE id=1")                       
         for passworditem in passwordconfirm:
-            if password == passworditem[0]:
+            print(password)
+            print(passworditem[0])
+            if check_password_hash(passworditem[0],password)== True:
                 north = request.form['North']
                 # only continue if the value>0
                 if check(north) == True:
