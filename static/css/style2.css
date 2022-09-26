@@ -1,4 +1,4 @@
-/* BODY */
+/* body */
 body{
     font-family: 'Raleway', sans-serif;
     margin: 0;
@@ -10,7 +10,6 @@ body{
 }
 
 /* HEADER */
-
 /* corner logo */
 .cornertriangles img{
     width: 17.75vw;
@@ -27,6 +26,11 @@ body{
 }
 .cornertrianglesmobile{
     display:none;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    width:100vw;
+    height:38.5vw;
 }
 
 /* navigation */
@@ -98,8 +102,14 @@ header p{
 }
 
 /* MAIN */
-
 /* main content */
+.main p{
+    margin:0;
+}
+.maincontent{
+    margin: 2vw;
+    padding-left:0vw;
+}
 article{
     background-color: white;
     position:absolute;
@@ -113,6 +123,7 @@ article{
     padding-left:2vw;
     padding-top:2vw;
 }
+
 
 /* slideshow */
 .slideshow img{
@@ -156,6 +167,76 @@ article{
     border-radius: 50%;
     height:10px;
     width:10px;
+}
+
+/* boxes */
+.boxes{
+    width:100%;
+    float:left;
+    position:relative;
+}
+.box{
+    position:relative;
+    height:20vw;
+    width:16.8vw;
+    padding:1vw;
+    margin:2vw;
+    margin-right:0;
+    margin-bottom:10vw;
+    float:left;
+    top:2vw;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+    font-size:1.2vw;    
+}
+.box h4{
+    margin-top:0;
+}
+textarea{
+    background-color: rgba(255, 255, 255, 0);
+    border:none;
+    resize:none;
+    font-family:'Raleway', sans-serif;
+    font-size: inherit;
+    color: black;
+}
+.block1{
+    padding:1vw;
+    margin-bottom:1vw;
+    margin-right:1vw;
+    float:left;
+    color:black;
+}
+.block2{
+    padding:0;
+    margin-bottom
+    :1vw;
+    margin-right:1vw;
+    float:left;
+    position:relative;
+}
+.block2 img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.block2 p{
+    position:absolute;
+    color:white;
+    bottom:0.5vw;
+    background-color:rgba(33, 33, 33, 0.7);
+    width:100%;
+    text-align:center;
+}
+/* term dates */
+.termdates{
+    width: 16.55vw;
+    height:100vh;
+    background-color:rgba(33, 33, 33, 100);
+    padding-left:1.2vw;
+    position:fixed;
+    top:6.15vw;
+    right:0vw;
+    color: white;
 }
 
 /* sidenav */
@@ -217,6 +298,11 @@ article{
     margin:1.67vw;
     margin-right:0;
 }
+.sidenav a{
+    text-decoration:none;
+}
+
+/* divpoints page */
 table{
     width:82%;
     padding-top:2vw;
@@ -241,9 +327,6 @@ td{
     text-decoration: none;
     color: black;
 }
-.sidenav a{
-    text-decoration:none;
-}
 .divpointsform{
     border-width:0.1vw;
     padding:0;
@@ -256,6 +339,8 @@ td{
 input[type="submit" i]{
     width:7vw;
 }
+
+/* clubs */
 .clubentry{
     width:95%;
     top:6vw;
@@ -306,97 +391,8 @@ input[type="submit" i]{
     margin-bottom:0.5vw;
     background-color:#f5f5f5ff;
 }
-.iframecontainer{
-    position: relative;
-    overflow: hidden;
-    float:left;
-    padding:1vw;
-    margin-bottom:1vw;
-    margin-right:1vw;
-}
-.ifram{
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-.main p{
-    margin:0;
-}
-.maincontent{
-    margin: 2vw;
-    padding-left:0vw;
-}
 
-.termdates{
-    width: 16.55vw;
-    height:100vh;
-    background-color:rgba(33, 33, 33, 100);
-    padding-left:1.2vw;
-    position:fixed;
-    top:6.15vw;
-    right:0vw;
-    color: white;
-}
-.boxes{
-    width:100%;
-    float:left;
-    position:relative;
-}
-.box{
-    position:relative;
-    height:20vw;
-    width:16.8vw;
-    padding:1vw;
-    margin:2vw;
-    margin-right:0;
-    margin-bottom:10vw;
-    float:left;
-    top:2vw;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
-    font-size:1.2vw;    
-}
-.box h4{
-    margin-top:0;
-}
-textarea{
-    background-color: rgba(255, 255, 255, 0);
-    border:none;
-    resize:none;
-    font-family:'Raleway', sans-serif;
-    font-size: inherit;
-    color: black;
-}
-.block1{
-    padding:1vw;
-    margin-bottom:1vw;
-    margin-right:1vw;
-    float:left;
-    color:black;
-}
-.block2{
-    padding:0;
-    margin-bottom
-    :1vw;
-    margin-right:1vw;
-    float:left;
-    position:relative;
-}
-.block2 img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-.block2 p{
-    position:absolute;
-    color:white;
-    bottom:0.5vw;
-    background-color:rgba(33, 33, 33, 0.7);
-    width:100%;
-    text-align:center;
-}
+/* printing */
 .printside h4{
     width:auto;
     margin:0;
@@ -417,40 +413,15 @@ textarea{
 .printcontent ul{
     margin:0;
 }
-.cornertrianglesmobile{
-    background-repeat:no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
-    width:100vw;
-    height:38.5vw;
-}
+
 
 @media only screen and (max-width: 600px) {
     /* mobile and tablet settings */
     .cornertriangles,.cornertriangles2,.termdates,.blackbar{
         display:none;
     }
-
-    article{
-        left:0;
-        top:40vw;
-        width:64.5vw;
-    }
-    .slideshow{
-        width:0;
-        height:0;
-        z-index:2;
-    }
-    .slideshow img{
-        position:relative;
-        top:0vw;
-        width:90vw;
-        height:56.25vw;
-        left:5vw;
-        margin:0;
-        padding-left:0;
-        z-index:2;
-    }
+    
+    /* header */
     .cornertrianglesmobile{
         display:block;
     }
@@ -487,18 +458,8 @@ textarea{
         text-decoration: none;
         padding:2vw;
     }
-    .prev,.next{
-        top:25vw;
-        transition: max-height 0s ease-out;
-        background-color: rgba(33, 33, 33, 0.5);
-        z-index:3;
-    }
-    .next{
-        right:-30.5vw;
-    }
-    .prev{
-        left:5vw;
-    }
+
+    /* navigation */
     .navigation{
         display:block;
         z-index:5;
@@ -531,6 +492,63 @@ textarea{
         font-size: 120%;
         text-align: center;
     }
+    .blackbar p{
+        display:block;
+    }
+
+    /* main */
+    article{
+        left:0;
+        top:40vw;
+        width:64.5vw;
+    }
+
+    /* slideshow */
+    .slideshow{
+        width:0;
+        height:0;
+        z-index:2;
+    }
+    .slideshow img{
+        position:relative;
+        top:0vw;
+        width:90vw;
+        height:56.25vw;
+        left:5vw;
+        margin:0;
+        padding-left:0;
+        z-index:2;
+    }
+    .prev,.next{
+        top:25vw;
+        transition: max-height 0s ease-out;
+        background-color: rgba(33, 33, 33, 0.5);
+        z-index:3;
+    }
+    .next{
+        right:-30.5vw;
+    }
+    .prev{
+        left:5vw;
+    }
+
+    /* boxes */
+    .boxes{
+        z-index:1;
+        top:135vw;
+        left:5vw;
+    }
+    .box{
+        width: 88vw;
+        z-index:1;
+        margin:2vw;
+        margin-left:0;
+        font-size:3vw;
+        height:fit-content;
+        font-size: 90%;
+    }
+    
+    /* clubs */
     .clubs{
         width:96vw;
         z-index:0;
@@ -603,20 +621,8 @@ textarea{
     .sidenav .menu{
         right: 2vw;
     }
-    .boxes{
-        z-index:1;
-        top:135vw;
-        left:5vw;
-    }
-    .box{
-        width: 88vw;
-        z-index:1;
-        margin:2vw;
-        margin-left:0;
-        font-size:3vw;
-        height:fit-content;
-        font-size: 90%;
-    }
+    
+    /* divpoints */
     .divpoints{
         width:90vw;
         display:block;
@@ -640,9 +646,6 @@ textarea{
         margin-bottom:1vw;
         left:-3vw;
     }
-    .blackbar p{
-        display:block;
-    }
     .first{
         width:80vw;
         height:5vw;
@@ -651,6 +654,5 @@ textarea{
     .second,.third{
         height:5vw;
         z-index:1;
-    }
-    
+    }  
 }
