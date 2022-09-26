@@ -10,8 +10,10 @@
             </div>
         {% endfor %}
         <!--buttons for scrolling through slideshow-->
-        <a class="prev" onclick="increaseid(-1)">&#10094;</a>
-        <a class="next" onclick="increaseid(1)">&#10095;</a>
+        <div class="arrow">
+            <a class="prev" onclick="increaseid(-1)">&#10094;</a>
+            <a class="next" onclick="increaseid(1)">&#10095;</a>
+        </div>
     </div>
     <script>
         var id = 1;
@@ -38,6 +40,7 @@
     </script>
     
     <div class="termdates">
+        <!--define the dates written on the sidebar-->
         <h2>Term Dates:</h2>
         <p>Term 1- 2nd Feb- 99 March</p>
         <p>Term 2- 2nd Feb- 99 March</p>
@@ -50,6 +53,7 @@
         <p>ANZAC Day: 23rd March</p>
     </div>
     <div class="boxes">
+    <!--main content below slideshow-->
         <div class="box">
             <h4>Want to join a club? Discover new groups on the clubs page!</h4>
             <a id="nav-link1" href="/clubs">Clubs</a>
@@ -57,26 +61,48 @@
         <div class="box">
             <h4>Guess how many lollies are in the jar and win everything inside!</h4>
             <p>Go to the library or visit the library website to enter your guess.</p>
-            <a id="nav-link2" href="http://opac.burnside.school.nz:2000/#!dashboard" target="_blank">Library</a>
+            <a id="nav-link2" href="http://opac.burnside.school.nz:2000/#!dashboard" 
+            target="_blank">Library</a>
         </div>
         <div class="box">
             <h4>West has won the athletics competition!!!</h4>
-            <p>The next event will be held on the lower fields on the 25th of december.<br>A notice with more information will be provided to your form teacher.<br>To view the points click<a href src=/divpoints>here</a></p>
+            <p>The next event will be held on the lower fields on the 25th of december.
+                <br>A notice with more information will be provided to your form teacher.
+                <br>To view the points click <a href src=/divpoints>here</a></p>
         </div>
     </div>
 {% endblock %}
 {% block sidebar %}
-    <!--display the divisional points as bars with widths as percentages of the winner-->
     <div class=divpoints>
         <h4>Divisional Points:</h4>
-        <div class=first style='background-color: #{{col1}}'><h5>{{name1}}</h5></div>
-        <div class=number><p>{{num1}}</p></div>
-        <div class=second style='background-color: #{{col2}}; width:calc(({{num2}}/{{num1}})*12vw)'><h5>{{name2}}</h5></div>
-        <div class=number><p>{{num2}}</p></div>
-        <div class=second style='background-color: #{{col3}}; width:calc(({{num3}}/{{num1}})*12vw)'><h5>{{name3}}</h5></div>
-        <div class=number><p>{{num3}}</p></div>
-        <p>North, South and West are divisions competing to win the Mitchell Cup. Students can gain points for their division by participating in events such as atheletics.</p>
-        <div class='link'>
+        <div class="first" style='background-color: #{{col1}}'><h5>{{name1}}</h5></div>
+        <div class="number"><p>{{num1}}</p></div>
+        <div class="second"><h5>{{name2}}</h5></div>
+        <div class="number"><p>{{num2}}</p></div>
+        <div class="third"><h5>{{name3}}</h5></div>
+        <div class="number"><p>{{num3}}</p></div>
+        <style>
+            .second{
+                background-color: #{{col2}}; 
+                width:calc(({{num2}}/{{num1}})*12vw);
+            }
+            .third{
+                background-color: #{{col3}}; 
+                width:calc(({{num3}}/{{num1}})*12vw);
+            }
+            @media only screen and (max-width: 600px) {
+                .second{
+                    width:calc(({{num2}}/{{num1}})*80vw);
+                }
+                .third{
+                    width:calc(({{num3}}/{{num1}})*80vw);
+                }
+            }
+        </style>
+        <p>North, South and West are divisions competing to win the Mitchell Cup. 
+            Students can gain points for their division by participating in events 
+            such as atheletics.</p>
+        <div class="link">
                 <a href="/divpoints"><p>More Information</p></a>
         </div>
     </div>

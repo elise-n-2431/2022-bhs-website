@@ -48,7 +48,8 @@ def home():
     north = ['North', 0]
     south = ['South', 0]
     west = ['West', 0]
-    results = connectsql("db/Divisionalpoints.db", "SELECT colour, name FROM Divisions")
+    results = connectsql("db/Divisionalpoints.db", 
+                         "SELECT colour, name FROM Divisions")
     # fetch and list the colour and name for each division
     for result in results:
         if result[1] == 'north':
@@ -94,7 +95,8 @@ def home():
         namecount=namec[0]
     namelist=[]
     for i in range(namecount):
-        name=connectsql("db/SlideShow.db", f'SELECT name FROM "Order" WHERE "order"={i+1}')
+        name=connectsql("db/SlideShow.db", f'SELECT name FROM "Order" WHERE\
+                         "order"={i+1}')
         namelist.append(name)
     
     return render_template('home2.html', num1=num1, num2=num2, num3=num3,
@@ -229,5 +231,16 @@ def links():
 def printing():
     return render_template('printing.html', week=week, date=date)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(k):
+    return render_template('500.html'), 500
+    
 if __name__ == "__main__":
+    app.register_error_handler(404, page_not_found)
+    app.register_error_handler(500, internal_server_error)
     app.run(debug=True)

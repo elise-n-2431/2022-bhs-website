@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block content %}
-<button class=sortbut onclick="opennav2()">menu</button>
+<button class=sortbut onclick="opennav2()">Sort By...</button>
 <div class=clubs>
     {%for club in clubs%}
         <button type="button" class="clubentry"><img src="static/css/{{club[5]}}icon.png"><p>{{club[0]}}</p></button>
