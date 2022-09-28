@@ -91,6 +91,9 @@ header p{
     right:38vw;
     top:0.25vw;
 }
+.menu{
+    display:none;
+}
 .material-symbols-outlined{
     display:none;
 }
@@ -420,7 +423,7 @@ input[type="submit" i]{
     .cornertriangles,.cornertriangles2,.termdates,.blackbar{
         display:none;
     }
-    
+
     /* header */
     .cornertrianglesmobile{
         display:block;
@@ -438,6 +441,7 @@ input[type="submit" i]{
         z-index:-1;
     }
     .menu{
+        display:block;
         right:5vw;
         top:22vw;
         z-index:4;
@@ -496,7 +500,7 @@ input[type="submit" i]{
         display:block;
     }
 
-    /* main */
+    /* main content */
     article{
         left:0;
         top:40vw;

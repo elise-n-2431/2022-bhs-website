@@ -3,10 +3,12 @@
         <!--links which are displayed in the nav bar and the date etc.-->
         <a href="/">Home</a>
         <a href="/clubs">Clubs</a>
-        <a href="http://opac.burnside.school.nz:2000/#!dashboard" target="_blank">Library</a>
+        <a href="http://opac.burnside.school.nz:2000/#!dashboard" 
+        target="_blank">Library</a>
         <a href="/printing">Printing</a>
         <a href="/links">Links</a>
-        <a href="https://sites.google.com/a/burnside.school.nz/bhs_senior-division/" target="_blank">Senior Division</a>
+        <a href="https://sites.google.com/a/burnside.school.nz/bhs_senior-division/"
+        target="_blank">Senior Division</a>
         <p>Week: {{week}} <br>Date: {{date}}</p>
     </div>
 </header>
@@ -18,13 +20,16 @@
 </div>
 <div class="navigation" id="navigation" style="width:0px">
     <div class="nav-content" id="nav-content">
-        <!--the links that will be displayed on mobile when the menu button is clicked (same as above)-->
+        <!--the links that will be displayed on mobile when the menu button is 
+            clicked (same as above)-->
         <a id="nav-link0" style="margin-top:5vw;" href="/">Home</a>
         <a id="nav-link1" href="/clubs">Clubs</a>
-        <a id="nav-link2" href="http://opac.burnside.school.nz:2000/#!dashboard" target="_blank">Library</a>
+        <a id="nav-link2" href="http://opac.burnside.school.nz:2000/#!dashboard"
+        target="_blank">Library</a>
         <a id="nav-link3" href="/printing">Printing</a>
         <a id="nav-link4" href="/links">Links</a>
-        <a id="nav-link5" href="https://sites.google.com/a/burnside.school.nz/bhs_senior-division/" target="_blank">Seniors</a>
+        <a id="nav-link5" href="https://sites.google.com/a/burnside.school.nz
+        /bhs_senior-division/" target="_blank">Seniors</a>
     </div>
 </div>
 
@@ -48,7 +53,8 @@
             for (let i = 0; i < 6; i++) {
                 document.getElementById(`nav-link${i}`).style.width='0';
                 document.getElementById(`nav-link${i}`).style.display='none';  
-                document.getElementById(`nav-link${i}`).style.padding="3vw 0vw 3vw 0vw"; 
+                document.getElementById(`nav-link${i}`).style.padding=
+                "3vw 0vw 3vw 0vw"; 
             }
         }
     }

@@ -2,19 +2,14 @@ from flask import Flask, flash, render_template, request, redirect
 import sqlite3
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from flask.helpers import url_for
 app = Flask(__name__)
-
-
 def connectsql(data, query):
     with sqlite3.connect(data) as connection:
         cursor = connection.cursor()
         cursor.execute(query)
         results = cursor.fetchall()
         return results
-
-
 def check(value):
     # confirm divpoint values in form are positive
     try:
@@ -25,8 +20,6 @@ def check(value):
             return False
     except:
         return False
-
-
 # set the current time, week and date for the top of the page
 week1 = datetime.datetime.now().strftime("%W")
 week = int(week1)
@@ -37,8 +30,6 @@ else:
 date = datetime.datetime.now().strftime("%d/%m/%Y")
 # datet is the date in the format of yyyy-mm-dd for divpoints sql entries
 datet = datetime.datetime.now().strftime("%Y-%m-%d")
-
-
 @app.route('/')
 def home():
     # fetch divisional points and determine the total per division and order
@@ -48,6 +39,7 @@ def home():
     north = ['North', 0]
     south = ['South', 0]
     west = ['West', 0]
+    results = connectsql("db/Divisionalpoints.db", "SELECT colour, name FROM Divisions")
     results = connectsql("db/Divisionalpoints.db", 
                          "SELECT colour, name FROM Divisions")
     # fetch and list the colour and name for each division
@@ -95,16 +87,15 @@ def home():
         namecount=namec[0]
     namelist=[]
     for i in range(namecount):
+        name=connectsql("db/SlideShow.db", f'SELECT name FROM "Order" WHERE "order"={i+1}')
         name=connectsql("db/SlideShow.db", f'SELECT name FROM "Order" WHERE\
                          "order"={i+1}')
         namelist.append(name)
-    
-    return render_template('home2.html', num1=num1, num2=num2, num3=num3,
+
+    return render_template('home.html', num1=num1, num2=num2, num3=num3,
                            name1=name1, name2=name2, name3=name3, col1=col1,
                            col2=col2, col3=col3, week=week,
                            date=date,namelist=namelist,namecount=namecount)
-
-
 @app.route('/clubs', methods=['POST', 'GET'])
 # create a page displaying the clubs
 def clubs():
@@ -139,7 +130,6 @@ def clubs():
                         categories = int(categories)
                         if cat == categories:
                             clubs.append(club)
-
                     else:
                         ''' fetch all the entries from the daysclubs table
                         which match the chosen club'''
@@ -174,8 +164,6 @@ def clubs():
             clubs = cursor.fetchall()
     # display the clubs page with the list of clubs as the clubs displayed
     return render_template("clubs.html", clubs=clubs, week=week, date=date)
-
-
 @app.route('/divpoints', methods=['POST', 'GET'])
 def divpoints():
     if request.method == 'POST':
@@ -210,7 +198,6 @@ def divpoints():
             else:
                 return render_template('divisioncodefailure.html', \
                                        error="Invalid Password")
-
     with sqlite3.connect("db/Divisionalpoints.db") as connection:
         # fetch divisional points by event from sql and display as results
         cursor = connection.cursor()
@@ -219,14 +206,9 @@ def divpoints():
         results = cursor.fetchall()
     return render_template('divisionalpoints.html', results=results, 
                            week=week, date=date)
-
-
-
 @app.route('/links')
 def links():
     return render_template('links.html', week=week, date=date)
-
-
 @app.route('/printing')
 def printing():
     return render_template('printing.html', week=week, date=date)
@@ -239,7 +221,7 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(k):
     return render_template('500.html'), 500
-    
+
 if __name__ == "__main__":
     app.register_error_handler(404, page_not_found)
     app.register_error_handler(500, internal_server_error)
